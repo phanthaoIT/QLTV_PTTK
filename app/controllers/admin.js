@@ -9,4 +9,22 @@ router.get('/login',function(req,res){
     };
 	res.render("login");
 });
+router.get('/list',function(req,res){
+	 var vm = {
+        layout: false
+    };
+	res.render("list");
+});
+router.get('/add',function(req,res){
+	 var vm = {
+        layout: false
+    };
+	res.render("add");
+});
+router.get('/edit',function(req,res){
+	var vm = {
+        layout: false
+    };
+	res.render("edit");
+});
 module.exports=router;
