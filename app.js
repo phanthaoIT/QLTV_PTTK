@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 app.set("views",__dirname+"/app/views");
 app.engine('handlebars', exphbs({
-    defaultLayout: 'index',
+  //  defaultLayout: 'index',
     layoutsDir: "./app/views",
     helpers: {
         section: express_handlebars_sections()
