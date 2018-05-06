@@ -1,11 +1,12 @@
+
 html , body{
-	
+    
  height:100%;
  
 }
  
 .full-width {
-	
+    
  width:100%;
  
  }
@@ -195,12 +196,12 @@ html , body{
 .nav-sm .nav.side-menu li a {
     text-align: center !important;
     font-weight: 400;
-    font-size: 10px;
-    padding: 10px 25px
+    font-size: 14px;
+    padding: 10px 5px
 }
 .nav-sm .nav.child_menu li.active,
 .nav-sm .nav.side-menu li.active-sm {
-    border-right: 7px solid #1ABB9C
+    border-right: 5px solid #1ABB9C
 }
 .nav-sm ul.nav.child_menu ul,
 .nav-sm .nav.side-menu li.active-sm ul ul {
@@ -239,11 +240,22 @@ html , body{
     display: none
 }
 .menu_section {
-    margin-bottom: 20px
+    margin-top: 100px;
+    margin-bottom: 35px
 }
-
-.menu_section ul {
-    margin-top: 80px
+.menu_section h3 {
+    padding-left: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-shadow: 1px 1px #000
+}
+.menu_section>ul {
+    margin-top: 20px
 }
 .profile_pic {
     width: 35%;
@@ -294,10 +306,10 @@ html , body{
 .main_menu span.fa {
     float: right;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 10px;
     min-width: inherit;
-    color: #C4C4C4
+    color: #C4CFDA
 }
 .active a span.fa {
     text-align: right !important;
@@ -708,17 +720,18 @@ a:focus {
 .sidebar-header:first-of-type {
     margin-top: 0
 }
-.nav.>li {
+.nav.side-menu>li {
     position: relative;
     display: block;
     cursor: pointer
 }
 .nav.side-menu>li>a {
-    margin-bottom: 15px;
+    margin-left: 7px;
     font-size: 16px;
+    margin-bottom: 20px
 }
 .nav.side-menu>li>a:hover {
-    color: #000 !important
+    color: #F2F5F7 !important
 }
 .nav.side-menu>li>a:hover,
 .nav>li>a:focus {
@@ -882,7 +895,6 @@ a:focus {
     float: left;
     cursor: pointer
 }
-
 .panel_toolbox>li>a {
     padding: 5px;
     color: #C5C7CB;
@@ -1062,7 +1074,7 @@ h2 {
     transition: all .2s ease
 }
 .x_title {
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid #E6E9ED;
     padding: 1px 5px 6px;
     margin-bottom: 10px
 }
@@ -1664,7 +1676,7 @@ span.right {
     position: fixed;
     width: 230px;
     background: #2A3F54;
-	z-index:999;
+    z-index:999;
 }
 .sidebar-footer a {
     padding: 7px 0 3px;
@@ -1835,15 +1847,16 @@ h4.graph_title {
     margin-right: 10px
 }
 .main_menu .fa {
-    width: 60px;
+    width: 26px;
     opacity: .99;
     display: inline-block;
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
-    font-size: 50px;
+    font-size: 24px;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 10px
 }
 .tile-stats {
     position: relative;
@@ -4155,8 +4168,14 @@ ul.notifications {
     border: 1px solid #e5e5e5
 }
 
+/*
+.x_content {
+    direction: rtl;
+}
+*/
+
 .main_menu .label {
-    line-height: 20px;
+    line-height: 11px;
     margin-top: 4px;
 }
 @media (max-width: 460px) {
@@ -4173,6 +4192,59 @@ ul.notifications {
 @media (max-width: 767px) {
    .dataTables_length { float:none; }
 }
+
+
+
+
+/* CSS3 Checkbox */
+/*
+.checkbox-input { display:block;position:relative; }
+.checkbox-input:before { display:block;content:"";position:absolute;top:2px;left:0;height:20px;width:20px;background:red;border-radius:3px; }
+
+
+ #input + label:after {
+    content: 'click my input';
+    color: blue;
+  }
+
+  #input:focus + label:after {
+    content: 'not valid yet';
+    color: blue;
+  }
+
+  #input:valid + label:after {
+    content: 'looks good';
+    color: red;
+  }
+
+/* CSS3 Checkbox - end */
+/*
+
+/*
+.checkbox                                                                                                       { display: block;position:relative;cursor:pointer; }
+.checkbox input                                                                                                 { position:absolute;z-index:-1;opacity:0;left:0;top:0; }
+.checkbox div                                                                                                   { position:absolute;top:2px;left:0;height:20px;width:20px;background:#e6e6e6;border-radius:3px; }
+.checkbox input:checked ~ div                                                                           { background: #1ABC9C; }
+.checkbox:hover input:not([disabled]):checked ~ div,
+.checkbox input:checked:focus ~ div                                                                     { background: #1ABC9C; }
+.checkbox input:disabled ~ div                                                                          { background: #1ABC9C;opacity: 0.6;pointer-events: none; }
+.checkbox div:after                                                                                             { content: '';position: absolute;display: none; }
+.checkbox input:checked ~ div:after                                                                     { display: block; }
+.checkbox-wp div:after                                                                                  { left: 7px;top: 3px;width: 7px;height: 11px;border: solid #fff;border-width: 0 2px 2px 0;transform: rotate(40deg); }
+.checkbox-wp input:disabled ~ div:after                                                                 { border-color: #F2F2F2; }
+
+
+.checkbox-radio div                                                                                             { border-radius: 50%; }
+.checkbox-radio div:after                                                                                   { left: 7px;top: 7px;height: 6px;width: 6px;border-radius: 50%;background: #fff; }
+.checkbox-radio input:disabled ~ div:after                                                          { background: #F2F2F2; }
+
+
+.checkbox, .radio { margin-top:-3px; }
+
+table thead .checkbox { margin-top:-7px;margin-top:-21px; }
+table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
+*/
+            
 .daterangepicker.xdisplay { width:228px; }
 
 .dataTables_wrapper > .row{
@@ -4182,6 +4254,6 @@ ul.notifications {
 /** bootstrap-datetimepicker **/
 .input-group.date .input-group-addon{
     border-radius: 0px !important;
-    background-color: #fff !important;
+    background-color: #ffff !important;
 }
 /** /bootstrap-datetimepicker **/
