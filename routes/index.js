@@ -1,9 +1,8 @@
-var TheLoaiController = require('../app/controllers/TheLoai')
-var express = require('express');
-var router = express.Router();
+var TheLoaiController = require('../app/controllers/TheLoaiController')
+module.exports = (app) => {
+    app.get('/', (req, res) => {
+        res.render('login')
+    })
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('login');
-});
-router.use('/TheLoai',TheLoaiController);
+    app.use('/TheLoai', TheLoaiController);
+} 

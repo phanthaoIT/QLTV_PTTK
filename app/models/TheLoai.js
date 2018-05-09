@@ -1,12 +1,12 @@
 var db = require("../../config/mysql")
-function loadAll(){
+exports.loadAll=()=>{
 	return new Promise((resolve, reject) => {
 		var query = 'select * from theloai';
-		con.query(query, (err, results, fields) => {
+		db.query(query, (err, results, fields) => {
 			if(err)
 				reject(err);
 			else
-				resolve(results)
-		})
+				resolve(results);
+		});
 	});
 }
