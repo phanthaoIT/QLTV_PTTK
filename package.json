@@ -1,24 +1,17 @@
 {
-  "name": "qltv_pttk",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "name": "qltv-pttk",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "config": "^1.30.0",
-    "ejs": "^2.6.1",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "express-handlebars-sections": "^1.0.1",
-    "express-session": "^1.15.6",
-    "handlebars": "^4.0.11",
-    "multer": "^1.3.0",
-    "mysql": "^2.15.0",
-    "pg": "^7.4.2"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "mysql": "^2.15.0"
   }
 }
