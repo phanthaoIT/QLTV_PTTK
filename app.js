@@ -2,10 +2,12 @@ var http = require('http');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var session = require('express-session');
 var exphbs = require('express-handlebars');
+var multer = require('multer');
 var express_handlebars_sections = require('express-handlebars-sections');
 var app = express();
 var hbs = exphbs.create({
@@ -20,6 +22,10 @@ require('./routes/index')(app);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use("/static",express.static(__dirname+"/public"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
