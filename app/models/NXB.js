@@ -12,7 +12,7 @@ exports.loadAll=()=>{
 }
 exports.add=(c)=>{
 	return new Promise((resolve, reject) => {
-		var query = `insert into nxb(TenNXB) values('${c.ten}')`;
+		var query = `insert into nxb(TenNXB) values('NXB trẻ')`;
 		db.query(query, (err, results, fields) => {
 			if(err)
 				reject(err);

@@ -10,13 +10,9 @@ router.get('/list', (req, res) => {
         res.render('NXB/list', vm);
     });
 });
-router.get('/add', (req, res) => {
-    res.render('NXB/add');
-});
-
-router.post('/add', (req, res) => {
+router.post('/list', (req, res) => {
     nxb_md.add(req.body).then(value => {
-        res.render('NXB/add');
+        res.render('NXB/list');
     }).catch(err => {
         res.end('fail');
     });
