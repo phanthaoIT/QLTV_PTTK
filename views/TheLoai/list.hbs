@@ -1,64 +1,114 @@
-<h3 style="color: blue">Danh sách Thể loại</h3>
-<hr>
-<a data-toggle="modal" href="#myModal"class="btn btn-success" role="button">
+{{#section 'title'}}
+DANH SÁCH THỂ LOẠI
+{{/section}}
+<a data-toggle="modal" href="#add"class="btn btn-success" role="button">
 	<span class="fa fa-plus"></span>
 	Thêm mới
 </a>
 <br>
-<div class="span7">   
-	<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="widget-content">
+<table class="table table-hover" id ="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Tên Thể loại</th>
+			<th class="td-actions"></th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each theloai}}
+		<tr>
+			<td id="id">{{Id}}</td>
+			<td>{{TenTheLoai}}</td>
+			<td class="text-right">
+				<a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
+					<i class="fa fa-pencil"></i>
+				</a>
 
-			<table class="table table-striped table-bordered">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Tên thể loại</th>
-						<th class="td-actions"></th>
-					</tr>
-				</thead>
-				<tbody>
-					{{#each theloai}}
-					<tr>
-						<td id="id">{{Id}}</td>
-						<td>{{TenTheLoai}}</td>
-						<td class="td-actions col-xs-2 col-sm-2 col-md-2 col-lg-2">
-							<a href="javascript:;" class="btn btn-small btn-primary">
-								<i class="fa fa-pencil"></i>
-							</a>
-
-							<a href="javascript:;" class="btn btn-small btn-danger">
-								<i class="fa fa-remove"></i>
-							</a>
-						</td>
-					</tr>
-					{{/each}}
-				</tbody>
-			</table>
-
-		</div> <!-- /widget-content -->
-
-	</div> <!-- /widget -->
-</div>
-<div class="modal" id="myModal">
+				<a data-toggle="modal" href="#delete" class="btn btn-small btn-danger delete" role="button">
+					<i class="fa fa-trash"></i>
+				</a>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<div class="modal" id="add">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h4 class="modal-title">Thêm Thể loại mới</h4>
-			</div>
-			<div class="modal-body">
-				<form action="" role="form" method="POST">
-					<div class="form-group">
-						<label for="">Tên Thể Loại</label>
-						<input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên thể loại!" required="">
-					</div>
-					<div class="modal-footer form-group">
-						<button data-dismiss="modal" class="btn btn-danger">Hủy</button>
-						<button type="submit" class="btn btn-primary" >Save</button>
-					</div>
-				</form>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 class="panel-title">Thêm thể loại mới</h3>
+				</div>
+				<div class="panel-body">
+					<form action="list" role="form" method="POST">
+						<div class="form-group">
+							<label for="">Tên Thể loại</label>
+							<input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên thể loại!">
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+							<button type="submit" class="btn btn-primary">Save</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<div class="modal" id="delete">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 class="panel-title">Xóa Thể loại</h3>
+				</div>
+				<div class="panel-body">
+					<form action="delete" role="form" method="POST">
+						<div class="form-group">
+							<h3>Bạn muốn xóa Thể loại:</h3>
+							<label for="">ID:</label>
+							<input type="text" id="result" name="Id" readonly="readonly" style="border:none">
+							<label for="">Tên:</label>
+							<input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" class="btn btn-primary">Hủy</button>
+							<button type="submit" class="btn btn-danger">Xóa</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal" id="edit">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 class="panel-title">Chỉnh sửa Thể loại</h3>
+				</div>
+				<div class="panel-body">
+					<form action="edit" role="form" method="POST">
+						<div class="form-group">
+							<label for="">ID</label>
+							<input type="text" class="form-control" id="kq" name= "Id" value="{{Id}}" readonly><br>
+							<label for="">Tên Thể loại</label>
+							<input type="text" class="form-control" id="kq1" name= "ten" value="{{TenTheLoai}}" >
+						</div>
+						<div class="modal-footer">
+							<button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+							<button type="submit" class="btn btn-primary">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{#section 'scripts'}}
+<script src="/author.js"></script>
+{{/section}}
