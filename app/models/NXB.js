@@ -25,7 +25,7 @@ exports.add=(nxb)=>{
 exports.getById = (id) => {
 	return new Promise((resolve, reject) => {
 		var query = `select * from nxb where Id = ${id}`;
-		mysql.query(query, (err, result, fields) => {
+		db.query(query, (err, result, fields) => {
 			if (err)
 				reject(err);
 			else
@@ -36,7 +36,7 @@ exports.getById = (id) => {
 exports.delete = (id) => {
 	return new Promise((resolve, reject) => {
 		var query = `delete from nxb where Id = '${id}'`;
-		mysql.query(query, (err, result, fields) => {
+		db.query(query, (err, result, fields) => {
 			if (err)
 				reject(err);
 			else

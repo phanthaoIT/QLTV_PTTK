@@ -22,9 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(bodyParser.urlencoded({
-  //  extended: false
-//}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 require('./routes/index')(app);
@@ -33,10 +30,6 @@ require('./routes/index')(app);
   //next(createError(404));
 //});
 // error handler
-app.post('/helo/:id',function(req,res){
-  var id = req.params.id;
-  res.send(id);
-});
 server.listen(3000, (err) => {
 	if(err)
 		console.log(err);
