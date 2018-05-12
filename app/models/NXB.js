@@ -44,3 +44,14 @@ exports.delete = (id) => {
 		}); 
 	})
 }
+exports.update=(nxb)=>{
+	return new Promise((resolve, reject) => {
+		var query = `update nxb set TenNXB = '${nxb.ten}' where Id = ${nxb.Id} `;
+		db.query(query, (err, result, fields) => {
+			if (err)
+				reject(err);
+			else
+				resolve(result);
+		}); 
+	})
+}

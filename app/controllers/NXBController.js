@@ -30,4 +30,10 @@ router.post('/delete', (req, res) => {
     console.log(err);
 });
 });
+router.post('/edit', (req, res) => {
+    nxb_md.update(req.body).then(value => {
+        res.redirect('/NXB/list');
+    });
+});
+
 module.exports=router;
