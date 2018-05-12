@@ -5,16 +5,32 @@ router.get('/list', (req, res) => {
     nxb_md.loadAll().then(rows => {
         var vm = {
            layout:'layout/main',
-			nxb:rows
+			nxb:rows,
+        Id: req.query.Id
         };
         res.render('NXB/list', vm);
     });
 });
-router.post('/list', (req, res) => {
-    nxb_md.add(req.body).then(value => {
-        res.render('NXB/list');
+/*router.post('/list', function(req, res){
+        var nxb={
+          'ten':req.body.ten
+        }
+    nxb_md.add(nxb).then(value => {
+        res.redirect(req.get('referer'));
     }).catch(err => {
-        res.end('fail');
+        console.log(err);
+    });
+});*/
+/*router.get('/list', (req, res) => {
+    var vm = {
+        TenNXB: req.query.id
+    }
+    res.render('NXB/list', vm);
+});*/
+
+router.post('/list', (req, res) => {
+    nxb_md.delete(req.body.Id).then(value => {
+        res.redirect('/NXB');
     });
 });
 module.exports=router;

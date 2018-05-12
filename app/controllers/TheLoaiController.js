@@ -10,4 +10,15 @@ router.get('/list', (req, res) => {
         res.render('TheLoai/list', vm);
     });
 });
+router.post('/list', (req, res) => {
+    var theloai={
+       'ten': req.body
+    }
+    console.log(theloai.ten);
+   // nxb_md.add(nxb).then(value => {
+     //   res.redirect('NXB/list');
+    //}).catch(err => {
+      //  console.log(err);
+    //});
+});
 module.exports=router;
