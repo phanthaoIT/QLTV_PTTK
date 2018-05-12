@@ -1,11 +1,12 @@
-<h3 style="color: blue">Danh sách NXB</h3>
-<hr>
+{{#section 'title'}}
+DANH SÁCH NXB
+{{/section}}
 <a data-toggle="modal" href="#add"class="btn btn-success" role="button">
 	<span class="fa fa-plus"></span>
 	Thêm mới
 </a>
 <br>
-<table class="table table-hover">
+<table class="table table-hover" id ="table">
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -23,7 +24,7 @@
 					<i class="fa fa-pencil"></i>
 				</a>
 
-				<a data-toggle="modal" href="/NXB/delete?id={{Id}}" class="btn btn-small btn-danger" role="button">
+				<a data-toggle="modal" href="#delete" class="btn btn-small btn-danger deleteAuthor" role="button">
 					<i class="fa fa-trash"></i>
 				</a>
 			</td>
@@ -31,6 +32,7 @@
 		{{/each}}
 	</tbody>
 </table>
+
 <div class="modal" id="add">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -58,13 +60,16 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h4 class="modal-title">Xóa</h4>
+				<h4 class="modal-title">Xóa NXB</h4>
 			</div>
 			<div class="modal-body">
-				<form action="list" role="form" method="POST">
+				<h4>Bạn muốn xóa NXB có: </h4>
+				<form action="delete" role="form" method="POST">
 					<div class="form-group">
-						<input type="hidden" id="" name="Id" value="{{Id}}">
-						<input type="hidden" class="form-control" id="" name= "ten" value={{TenNXB}}>
+						<label for="">ID:</label>
+						<input type="text" id="result" name="Id" readonly="readonly" style="border:none">
+						<label for="">Tên:</label>
+						<input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
 					</div>
 					<div class="modal-footer form-group">
 						<button data-dismiss="modal" class="btn btn-primary">Hủy</button>
@@ -75,3 +80,6 @@
 		</div>
 	</div>
 </div>
+{{#section 'scripts'}}
+<script src="/author.js"></script>
+{{/section}}

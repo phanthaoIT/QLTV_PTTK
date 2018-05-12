@@ -11,12 +11,17 @@ var mysql = require('./config/mysql');
 
 var app = express();
 var server = http.createServer(app);
-var hbs = exphbs.create({
-    // properties used by express-handlebars configuration ...
-});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.engine('hbs', exphbs({
+    defaultLayout: 'main',
+    layoutsDir: 'views/',
+    helpers: {
+        section: express_handlebars_sections()
+    }
+}));
 app.set('view engine', 'hbs');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -4,14 +4,15 @@ var router = express.Router();
 router.get('/list', (req, res) => {
     nxb_md.loadAll().then(rows => {
         var vm = {
-           layout:'layout/main',
-			nxb:rows,
-       // Id: req.query.Id
-        };
+         layout:'layout/main',
+         nxb:rows,
+           // Id: req.body.Id
+       };
+        //console.log(req.params.Id);
         res.render('NXB/list', vm);
     });
 });
-/*router.post('/list', function(req, res){
+router.post('/list', function(req, res){
         var nxb={
           'ten':req.body.ten
         }
@@ -20,30 +21,13 @@ router.get('/list', (req, res) => {
     }).catch(err => {
         console.log(err);
     });
-});*/
-/*router.get('/list', (req, res) => {
-    var vm = {
-        TenNXB: req.query.id
-    }
-    res.render('NXB/list', vm);
-});*/
-
-/*router.post('/list', (req, res) => {
-    nxb_md.delete(req.body.Id).then(value => {
-        res.redirect('/NXB');
-    });
-});*/
-router.get('/delete', (req, res) => {
-    var vm = {
-        Id: req.query.id
-    }
-     console.log(req.query.Id);
-    res.render('NXB/delete', vm);
 });
 
 router.post('/delete', (req, res) => {
     nxb_md.delete(req.body.Id).then(value => {
         res.redirect('/NXB/list');
-    });
+  }).catch(err => {
+    console.log(err);
+});
 });
 module.exports=router;
