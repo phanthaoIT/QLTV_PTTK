@@ -1,114 +1,117 @@
-{{#section 'title'}}
-DANH SÁCH THỂ LOẠI
-{{/section}}
-<a data-toggle="modal" href="#add"class="btn btn-success" role="button">
-	<span class="fa fa-plus"></span>
-	Thêm mới
-</a>
-<br>
-<table class="table table-hover" id ="table">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Tên Thể loại</th>
-			<th class="td-actions"></th>
-		</tr>
-	</thead>
-	<tbody>
-		{{#each theloai}}
-		<tr>
-			<td id="id">{{Id}}</td>
-			<td>{{TenTheLoai}}</td>
-			<td class="text-right">
-				<a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
-					<i class="fa fa-pencil"></i>
-				</a>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">DANH SÁCH THỂ LOẠI</div>
+  <div class="panel-body">
+    <a data-toggle="modal" href="#add"class="btn btn-success" role="button">
+      <span class="fa fa-plus"></span>
+      Thêm mới
+    </a>
+    <br><br>
+    <table class="table table-hover" id ="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tên NXB</th>
+          <th class="td-actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each theloai}}
+        <tr>
+          <td id="id">{{Id}}</td>
+          <td>{{TenTheLoai}}</td>
+          <td class="text-right">
+            <a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
+              <i class="fa fa-pencil"></i>
+            </a>
 
-				<a data-toggle="modal" href="#delete" class="btn btn-small btn-danger delete" role="button">
-					<i class="fa fa-trash"></i>
-				</a>
-			</td>
-		</tr>
-		{{/each}}
-	</tbody>
-</table>
-<div class="modal" id="add">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h3 class="panel-title">Thêm thể loại mới</h3>
-				</div>
-				<div class="panel-body">
-					<form action="list" role="form" method="POST">
-						<div class="form-group">
-							<label for="">Tên Thể loại</label>
-							<input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên thể loại!">
-						</div>
-						<div class="modal-footer">
-							<button data-dismiss="modal" class="btn btn-danger">Hủy</button>
-							<button type="submit" class="btn btn-primary">Save</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="modal" id="delete">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="panel panel-danger">
-				<div class="panel-heading">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h3 class="panel-title">Xóa Thể loại</h3>
-				</div>
-				<div class="panel-body">
-					<form action="delete" role="form" method="POST">
-						<div class="form-group">
-							<h3>Bạn muốn xóa Thể loại:</h3>
-							<label for="">ID:</label>
-							<input type="text" id="result" name="Id" readonly="readonly" style="border:none">
-							<label for="">Tên:</label>
-							<input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
-						</div>
-						<div class="modal-footer">
-							<button data-dismiss="modal" class="btn btn-primary">Hủy</button>
-							<button type="submit" class="btn btn-danger">Xóa</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="modal" id="edit">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="panel panel-success">
-				<div class="panel-heading">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h3 class="panel-title">Chỉnh sửa Thể loại</h3>
-				</div>
-				<div class="panel-body">
-					<form action="edit" role="form" method="POST">
-						<div class="form-group">
-							<label for="">ID</label>
-							<input type="text" class="form-control" id="kq" name= "Id" value="{{Id}}" readonly><br>
-							<label for="">Tên Thể loại</label>
-							<input type="text" class="form-control" id="kq1" name= "ten" value="{{TenTheLoai}}" >
-						</div>
-						<div class="modal-footer">
-							<button data-dismiss="modal" class="btn btn-danger">Hủy</button>
-							<button type="submit" class="btn btn-primary">Save</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+            <a data-toggle="modal" href="#delete" class="btn btn-small btn-danger delete" role="button">
+              <i class="fa fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <div class="modal" id="add">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="panel-title">Thêm mới thể loại</h3>
+            </div>
+            <div class="panel-body">
+              <form action="list" role="form" method="POST">
+                <div class="form-group">
+                  <label for="">Tên Thể Loại</label>
+                  <input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên thể loại!">
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="delete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="panel-title">Xóa thể loại</h3>
+            </div>
+            <div class="panel-body">
+              <form action="delete" role="form" method="POST">
+                <div class="form-group">
+                  <h3>Bạn muốn Thể loại:</h3>
+                  <label for="">ID:</label>
+                  <input type="text" id="result" name="Id" readonly="readonly" style="border:none">
+                  <label for="">Tên:</label>
+                  <input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-primary">Hủy</button>
+                  <button type="submit" class="btn btn-danger">Xóa</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="panel-title">Chỉnh sửa thể loại</h3>
+            </div>
+            <div class="panel-body">
+              <form action="edit" role="form" method="POST">
+                <div class="form-group">
+                  <label for="">ID</label>
+                  <input type="text" class="form-control" id="kq" name= "Id" value="{{Id}}" readonly><br>
+                  <label for="">Tên NXB</label>
+                  <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenTheLoai}}" >
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {{#section 'scripts'}}
-<script src="/author.js"></script>
+<script src="/NXB.js"></script>
 {{/section}}

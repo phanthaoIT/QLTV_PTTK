@@ -4,11 +4,8 @@ var router = express.Router();
 router.get('/list', (req, res) => {
     nxb_md.loadAll().then(rows => {
         var vm = {
-         layout:'layout/main',
          nxb:rows,
-           // Id: req.body.Id
        };
-        //console.log(req.params.Id);
         res.render('NXB/list', vm);
     });
 });

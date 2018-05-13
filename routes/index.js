@@ -2,7 +2,10 @@ var TheLoaiController = require('../app/controllers/TheLoaiController')
 var NXBController = require('../app/controllers/NXBController')
 module.exports = (app) => {
     app.get('/', (req, res) => {
-        res.render('login')
+    	var vm = {
+    		layout: false,
+    	};
+        res.render('login',vm)
     })
 
     app.use('/TheLoai', TheLoaiController);

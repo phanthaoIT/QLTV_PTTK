@@ -1,88 +1,73 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="img/logo.png" type="image/ico">
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/img/logo.png" type="image/ico">
   <title>QUẢN LÝ THƯ VIỆN </title>
   <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
   <link href="/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="/css/custom.css" rel="stylesheet">
+</style>
 </head>
-<body class="nav-md">
-  <div class="container body">
-    <div class="main_container">
-      <!-- menu -->
-      <div class="col-md-3 left_col">
-        <div class="left_col scroll-view">
-          <div class="navbar nav_title" style="border: 0;">
-            <a class="site_title" href="#"><i class="fa fa-paw"></i><span>QUẢN LÝ THƯ VIỆN</span></a>
-          </div>
-          <br>
-          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-            <div class="menu_section">
-              <ul class="nav side-menu">
-                <li><a href="#"><i class="fa fa-search"></i>Tìm kiếm</a>
-                </li>
-                <li><a href="#"><i class="fa fa-user"></i>Quản lý độc giả</a>
-                </li>
-                <li><a href="#"><i class="fa fa-book"></i> Quản lý sách<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="#">Quản lý sách</a></li>
-                    <li><a href="#">Quản lý NXB</a></li>
-                    <li><a href="#">Quản lý thể loại</a></li>
-                  </ul>
-                </li>
-                <li><a href="#"><i class="  fa fa-exchange"></i>Quản lý mượn trả</a>
-                </li>
-                <li><a href="#"><i class="fa fa-pencil-square-o"></i> Quy định</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+<body class="sidebar-is-reduced">
+  <header class="l-header navbar-fixed-top">
+    <div class="l-header__inner clearfix">
+      <div class="c-header-icon js-hamburger">
+        <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
       </div>
-      <!-- header-->
-      <div class="top_nav">
-        <div class="nav_menu">
-          <nav>
-            <div class="nav toggle">
-              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="">
-                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="images/img.jpg" alt="">Phan Thao
-                  <span class=" fa fa-angle-down"></span>
-                </a>
-                <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="javascript:;">Thông tin cá nhân</a></li>
-                  <li>
-                  </li>
-                  <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                </ul>
-              </li>
-            </nav>
-          </div>
-        </div>
-        <div class="right_col" role="main" style="min-height: 607px;">
-        <div class="">
-          <div class="page-title">
-            <div class="title_left">
-              <h3>{{{_sections.title}}}</h3>
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                   {{{body}}}
-            </div>
-          </div>
-        </div>
+      <h3 class="title">QUẢN LÝ THƯ VIỆN</h3>
+      <div class="c-search">
+        <input class="c-search__input u-input" placeholder="Search..." type="text"/>
+      </div>
+      <div class="header-icons-group">
+        <div class="c-header-icon logout"><i class="fa fa-user"></i></div>
       </div>
     </div>
+  </header>
+  <div class="l-sidebar">
+    <div class="logo">
+      <div class="logo__txt fa fa-tags"></div>
     </div>
-    <script src="/bootstrap/jquery.min.js"></script>
-    <script src="/bootstrap/bootstrap.min.js"></script>
-    <script src="/css/custom.js"></script>
-    {{{_sections.scripts}}}
-  </body></html>
+    <div class="l-sidebar__content">
+      <nav class="c-menu js-menu">
+        <ul class="u-list">
+          <li class="c-menu__item " data-toggle="tooltip" title="Tra cứu sách">
+            <div class="c-menu__item__inner"><i class="fa fa-search"></i>
+              <div class="c-menu-item__title"><span>Tra cứu sách</span></div>
+            </div>
+          </li>
+          <li class="c-menu__item " data-toggle="tooltip" title="Quản lý sách">
+            <div class="c-menu__item__inner"><i class="fa fa-book"></i>
+              <div class="c-menu-item__title"><span>Quản lý sách</span></div>
+            </div>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý độc giả">
+            <div class="c-menu__item__inner"><i class="fa fa-user"></i>
+              <div class="c-menu-item__title"><span>Quản lý độc giả</span></div>
+            </div>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Accounts">
+            <div class="c-menu__item__inner"><i class="fa fa-exchange"></i>
+              <div class="c-menu-item__title"><span>Quản lý mượn trả</span></div>
+            </div>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings">
+            <div class="c-menu__item__inner"><i class="fa fa-pencil-square-o"></i>
+              <div class="c-menu-item__title"><span>Quy định</span></div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+<main class="l-main">
+  <div class="content-wrapper content-wrapper--with-bg">
+    {{{body}}}
+  </div>
+</main>
+<script src="/bootstrap/jquery.min.js"></script>
+<script src="/bootstrap/bootstrap.min.js"></script>
+<script src="/css/custom.js"></script>
+{{{_sections.scripts}}}
+</body></html>

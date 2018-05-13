@@ -15,7 +15,7 @@ var server = http.createServer(app);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
-    layoutsDir: 'views/',
+    layoutsDir: 'views/layout',
     helpers: {
         section: express_handlebars_sections()
     }
