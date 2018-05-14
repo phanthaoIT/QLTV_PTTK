@@ -7,6 +7,7 @@
   <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
   <link href="/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="/css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css"> 
 </style>
 </head>
 <body class="sidebar-is-reduced">
@@ -16,9 +17,6 @@
         <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
       </div>
       <h3 class="title">QUẢN LÝ THƯ VIỆN</h3>
-      <div class="c-search">
-        <input class="c-search__input u-input" placeholder="Search..." type="text"/>
-      </div>
       <div class="header-icons-group">
         <div class="c-header-icon logout"><i class="fa fa-user"></i></div>
       </div>
@@ -31,31 +29,36 @@
     <div class="l-sidebar__content">
       <nav class="c-menu js-menu">
         <ul class="u-list">
+          <a href="#">
           <li class="c-menu__item " data-toggle="tooltip" title="Tra cứu sách">
             <div class="c-menu__item__inner"><i class="fa fa-search"></i>
               <div class="c-menu-item__title"><span>Tra cứu sách</span></div>
             </div>
-          </li>
+          </li></a>
+          <a href="/sach/list">
           <li class="c-menu__item " data-toggle="tooltip" title="Quản lý sách">
             <div class="c-menu__item__inner"><i class="fa fa-book"></i>
               <div class="c-menu-item__title"><span>Quản lý sách</span></div>
             </div>
-          </li>
+          </li></a>
+          <a href="#">
           <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý độc giả">
             <div class="c-menu__item__inner"><i class="fa fa-user"></i>
               <div class="c-menu-item__title"><span>Quản lý độc giả</span></div>
             </div>
-          </li>
+          </li></a>
+          <a href="#">
           <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý mượn trả">
             <div class="c-menu__item__inner"><i class="fa fa-exchange"></i>
               <div class="c-menu-item__title"><span>Quản lý mượn trả</span></div>
             </div>
-          </li>
+          </li></a>
+          <a href="#">
           <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quy định">
             <div class="c-menu__item__inner"><i class="fa fa-pencil-square-o"></i>
               <div class="c-menu-item__title"><span>Quy định</span></div>
             </div>
-          </li>
+          </li></a>
         </ul>
       </nav>
     </div>

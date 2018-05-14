@@ -1,113 +1,255 @@
-
 <div class="container">
   <div class="row">
+    <a href="/NXB/list">
       <div class="col-lg-3">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-6">
-                <i class="fa fa-address-card-o fa-5x"></i>
-              </div>
-              <div class="col-xs-6 text-right">
-                <p class="announcement-heading">1</p>
-                <p class="announcement-text">Profiles</p>
-              </div>
-            </div>
-          </div>
-          <a href="#">
-            <div class="panel-footer announcement-bottom">
-              <div class="row">
-                <div class="col-xs-6">
-                  Expand
-                </div>
-                <div class="col-xs-6 text-right">
-                  <i class="fa fa-arrow-circle-right"></i>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="panel panel-warning">
+        <div class="panel panel-success">
           <div class="panel-heading">
             <div class="row">
               <div class="col-xs-6">
                 <i class="fa fa-barcode fa-5x"></i>
               </div>
               <div class="col-xs-6 text-right">
-                <p class="announcement-heading">12</p>
-                <p class="announcement-text"> Products</p>
+                <p class="announcement-text">Quản lý NXB</p>
               </div>
             </div>
           </div>
-          <a href="#">
-            <div class="panel-footer announcement-bottom">
-              <div class="row">
-                <div class="col-xs-6">
-                  Expand
-                </div>
-                <div class="col-xs-6 text-right">
-                  <i class="fa fa-arrow-circle-right"></i>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <div class="panel panel-danger">
-          <div class="panel-heading">
+          <div class="panel-footer announcement-bottom">
             <div class="row">
               <div class="col-xs-6">
-                <i class="fa fa-users fa-5x"></i>
-              </div>
-              <div class="col-xs-6 text-right">
-                <p class="announcement-heading">18</p>
-                <p class="announcement-text">Users</p>
-              </div>
+               Nhà xuất bản
+             </div>
+             <div class="col-xs-6 text-right">
+              <i class="fa fa-arrow-circle-right"></i>
             </div>
           </div>
-          <a href="#">
-            <div class="panel-footer announcement-bottom">
-              <div class="row">
-                <div class="col-xs-6">
-                  Expand
-                </div>
-                <div class="col-xs-6 text-right">
-                  <i class="fa fa-arrow-circle-right"></i>
-                </div>
-              </div>
-            </div>
-          </a>
         </div>
       </div>
-      <div class="col-lg-3">
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-6">
-                <i class="fa fa-comments fa-5x"></i>
-              </div>
-              <div class="col-xs-6 text-right">
-                <p class="announcement-heading">9000</p>
-                <p class="announcement-text"> Orders!</p>
-              </div>
-            </div>
-          </div>
-          <a href="#">
-            <div class="panel-footer announcement-bottom">
-              <div class="row">
-                <div class="col-xs-6">
-                  Expand
-                </div>
-                <div class="col-xs-6 text-right">
-                  <i class="fa fa-arrow-circle-right"></i>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div><!-- /.row -->
     </div>
+  </a>
+  <a href="/TheLoai/list">
+    <div class="col-lg-3">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-6">
+              <i class="fa fa-bookmark-o fa-5x"></i>
+            </div>
+            <div class="col-xs-6 text-right">
+              <p class="announcement-text">Quản lý thể loại</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer announcement-bottom">
+          <div class="row">
+            <div class="col-xs-6">
+             Thể loại sách
+           </div>
+           <div class="col-xs-6 text-right">
+            <i class="fa fa-arrow-circle-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">DANH SÁCH SÁCH</div>
+  <div class="panel-body">
+    <a data-toggle="modal" href="#add"class="btn btn-success" role="button">
+      <span class="fa fa-plus"></span>
+      Thêm sách mới
+    </a>
+    <br><br>
+    <table class="table table-hover" id ="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tên sách</th>
+          <th>Tác giả</th>
+          <th>Ngày nhập</th>
+          <th>Năm xuất bản</th>
+          <th>Số lượng</th>
+          <th>Thể loại</th>
+          <th>NXB</th>
+          <th class="td-actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each sach}}
+        <tr>
+          <td id="id">{{Id}}</td>
+          <td>{{TenSach}}</td>
+          <td>{{TacGia}}</td>
+          <td>{{NgayNhap}}</td>
+          <td >{{NamXB}}</td>
+          <td>{{SoLuong}}</td>
+          <td>{{IdTheLoai}}</td>
+          <td>{{IdNXB}}</td>
+          <td class="text-right">
+            <a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
+              <i class="fa fa-pencil"></i>
+            </a>
+
+            <a data-toggle="modal" href="#delete" class="btn btn-small btn-danger delete" role="button">
+              <i class="fa fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <div class="modal" id="add">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="panel-title">Thêm sách mới</h3>
+            </div>
+            <div class="panel-body">
+              <form action="list" role="form" method="POST">
+                <div class="form-group">
+                  <label for="">Tên sách</label>
+                  <input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên sách!">
+                </div>
+                <div class="form-group">
+                  <label for="">Tác giả</label>
+                  <input type="text" class="form-control" id="" name= "tacgia">
+                </div>
+                <div class="form-group">
+                  <label for="">Ngày nhập</label>
+                  <input type="date" class="form-control" id="" name= "ngaynhap">
+                </div>
+                <div class="form-group">
+                  <label for="">Năm xuất bản</label>
+                  <input type="date" class="form-control" id="" name= "namxb">
+                </div>
+                <div class="form-group">
+                  <label for="">Số lượng</label>
+                  <input type="text" class="form-control" id="" name= "soluong" placeholder="Vui lòng nhập địa chỉ">
+                </div>
+                <div class="form-group">
+                  <label for="">Thể loại</label>
+                  <select class="form-control" name="idtheloai">
+                    {{#each theloai}}
+                    <option value="{{{Id}}}">{{TentheLoai}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="">NXB</label>
+                  <select class="form-control" name="idnxb">
+                    {{#each nxb}}
+                    <option value="{{{Id}}}">{{TenNXB}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="delete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="panel-title">Xóa sách</h3>
+            </div>
+            <div class="panel-body">
+              <form action="delete" role="form" method="POST">
+                <div class="form-group">
+                  <h3>Bạn muốn sách:</h3>
+                  <label for="">ID:</label>
+                  <input type="text" id="result" name="Id" readonly="readonly" style="border:none">
+                  <label for="">Tên:</label>
+                  <input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-primary">Hủy</button>
+                  <button type="submit" class="btn btn-danger">Xóa</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="panel-title">Chỉnh sửa Sách</h3>
+            </div>
+            <div class="panel-body">
+              <form action="edit" role="form" method="POST">
+                <div class="form-group">
+                  <label for="">ID</label>
+                  <input type="text" class="form-control" id="kq" name= "Id" value ={{Id}} readonly>
+                </div>
+                <div class="form-group">
+                  <label for="">Tên sách</label>
+                  <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenSach}}" >
+                </div>
+                <div class="form-group">
+                  <label for="">Tác giả</label>
+                  <input type="text" class="form-control" id="kq2" name= "tacgia" value="{{TacGia}}">
+                </div>
+                <div class="form-group">
+                  <label for="">Ngày nhập</label>
+                  <input type="date" class="form-control" id="kq3" name= "ngaynhap" value="{{NgayNhap}}">
+                </div>
+                <div class="form-group">
+                  <label for="">Năm xuất bản</label>
+                  <input type="date" class="form-control" id="kq4" name= "namxb" value="{{NamXB}}">
+                </div>
+                <div class="form-group">
+                  <label for="">Số lượng</label>
+                  <input type="text" class="form-control" id="kq5" name= "soluong" value="{{SoLuong}}">
+                </div>
+                <div class="form-group">
+                  <label for="">Thể loại</label>
+                  <select class="form-control" name="idtheloai" id ="kq6">
+                    {{#each theloai}}
+                    <option value="{{Id}}">{{TentheLoai}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="">NXB</label>
+                  <select class="form-control" name="idnxb" id = "kq7">
+                    {{#each nxb}}
+                    <option value="{{{Id}}}">{{TenNXB}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{{#section 'scripts'}}
+<script src="/Sach.js"></script>
+<script> $(document).ready(function () {
+        //bootstrap WYSIHTML5 - text editor
+        $('#table').DataTable();
+      });
+</script>
+<script src ="/css/jquery.dataTables.min.js"></script>
+{{/section}}
