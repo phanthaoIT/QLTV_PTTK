@@ -113,37 +113,41 @@
                   <label for="">Tên sách</label>
                   <input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên sách!">
                 </div>
-                <div class="form-group">
-                  <label for="">Tác giả</label>
-                  <input type="text" class="form-control" id="" name= "tacgia">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label for="">Tác giả</label>
+                    <input type="text" class="form-control" id="" name= "tacgia">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Ngày nhập</label>
+                    <input type="date" class="form-control" id="" name= "ngaynhap">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Năm xuất bản</label>
+                    <input type="date" class="form-control" id="" name= "namxb">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Ngày nhập</label>
-                  <input type="date" class="form-control" id="" name= "ngaynhap">
-                </div>
-                <div class="form-group">
-                  <label for="">Năm xuất bản</label>
-                  <input type="date" class="form-control" id="" name= "namxb">
-                </div>
-                <div class="form-group">
-                  <label for="">Số lượng</label>
-                  <input type="text" class="form-control" id="" name= "soluong" placeholder="Vui lòng nhập địa chỉ">
-                </div>
-                <div class="form-group">
-                  <label for="">Thể loại</label>
-                  <select class="form-control" name="idtheloai">
-                    {{#each theloai}}
-                    <option value="{{{Id}}}">{{TentheLoai}}</option>
-                    {{/each}}
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="">NXB</label>
-                  <select class="form-control" name="idnxb">
-                    {{#each nxb}}
-                    <option value="{{{Id}}}">{{TenNXB}}</option>
-                    {{/each}}
-                  </select>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label for="">Số lượng</label>
+                    <input type="text" class="form-control" id="" name= "soluong" placeholder="Vui lòng nhập địa chỉ">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Thể loại</label>
+                    <select class="form-control" name="idtheloai">
+                      {{#each theloai}}
+                      <option value="{{{Id}}}">{{TentheLoai}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">NXB</label>
+                    <select class="form-control" name="idnxb">
+                      {{#each nxb}}
+                      <option value="{{{Id}}}">{{TenNXB}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
@@ -192,6 +196,7 @@
             </div>
             <div class="panel-body">
               <form action="edit" role="form" method="POST">
+               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div class="form-group">
                   <label for="">ID</label>
                   <input type="text" class="form-control" id="kq" name= "Id" value ="{{Id}}" readonly>
@@ -208,6 +213,8 @@
                   <label for="">Ngày nhập</label>
                   <input type="date" class="form-control" id="kq3" name= "ngaynhap" value="{{NgayNhap}}">
                 </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div class="form-group">
                   <label for="">Năm xuất bản</label>
                   <input type="date" class="form-control" id="kq4" name= "namxb" value="{{NamXB}}">
@@ -232,23 +239,24 @@
                     {{/each}}
                   </select>
                 </div>
-                <div class="modal-footer">
-                  <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
-                  <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-              </form>
+              </div>
+              <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 </div>
-</div>
 {{#section 'scripts'}}
 <script src="/Sach.js"></script>
 <script> $(document).ready(function () {
-        $('#table').DataTable();
-      });
+  $('#table').DataTable();
+});
 </script>
 <script src ="/css/jquery.dataTables.min.js"></script>
 {{/section}}
