@@ -46,7 +46,7 @@ exports.delete = (id) => {
 }
 exports.update=(sach)=>{
     return new Promise((resolve, reject) => {
-        var query = `update sach set TenSach = '${sach.ten}',TacGia = '${sach.ngaynhap}',NamXB = '${sach.namxb}',SoLuong = '${sach.soluong}',IdTheLoai = '${sach.idtheloai}',IdNXB = '${sach.idnxb}' where Id = ${sach.Id} `;
+        var query = `update sach set TenSach = '${sach.ten}',TacGia = '${sach.tacgia}', NgayNhap='${sach.ngaynhap}',NamXB = '${sach.namxb}',SoLuong = '${sach.soluong}',IdTheLoai = '${sach.idtheloai}',IdNXB = '${sach.idnxb}' where Id = ${sach.Id} `;
         db.query(query, (err, result, fields) => {
             if (err)
                 reject(err);

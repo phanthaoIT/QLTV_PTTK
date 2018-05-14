@@ -194,7 +194,7 @@
               <form action="edit" role="form" method="POST">
                 <div class="form-group">
                   <label for="">ID</label>
-                  <input type="text" class="form-control" id="kq" name= "Id" value ={{Id}} readonly>
+                  <input type="text" class="form-control" id="kq" name= "Id" value ="{{Id}}" readonly>
                 </div>
                 <div class="form-group">
                   <label for="">Tên sách</label>
@@ -247,7 +247,6 @@
 {{#section 'scripts'}}
 <script src="/Sach.js"></script>
 <script> $(document).ready(function () {
-        //bootstrap WYSIHTML5 - text editor
         $('#table').DataTable();
       });
 </script>
