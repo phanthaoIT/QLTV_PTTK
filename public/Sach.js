@@ -7,14 +7,24 @@
       });
       $(function(){
         $('.edit').click(function(e) {
-          e.preventDefault();
-          $('#kq').val($(this).closest('tr').find('td:first').text());
-          $('#kq1').val($(this).closest('tr').find('td:nth-child(2)').text());
-          $('#kq2').val($(this).closest('tr').find('td:nth-child(3)').text());
-          $('#kq3').val($(this).closest('tr').find('td:nth-child(4)').text());
-          $('#kq4').val($(this).closest('tr').find('td:nth-child(5)').text());
-          $('#kq5').val($(this).closest('tr').find('td:nth-child(6)').text());
-          $('#kq6').val($(this).closest('tr').find('td:nth-child(7)').text());
-          $('#kq7').val($(this).closest('tr').find('td:nth-child(8)').text());
+          var id = $(this).parent().parent().find('td').eq(0).html();
+          console.log(id)
+          var url = '/sach/editbook';
+          $.ajax({
+
+            url: url,
+            type: 'POST',
+            data: {Id: id},
+          })
+          .done(function(data) {
+            $('#kq').val(data.Id);
+            $('#kq1').val(data.TenSach);
+            $('#kq2').val(data.TacGia);
+            $('#kq3').val(data.NgayNhap);
+            $('#kq4').val(data.NamXB);
+            $('#kq5').val(data.SoLuong);
+            $('#kq6').val(data.IdTheLoai).change();
+            $('#kq7').val(data.IdNXB).change();
+          })
         });
       });

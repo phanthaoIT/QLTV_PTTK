@@ -1,7 +1,7 @@
 var db = require("../../config/mysql")
 exports.loadAll=()=>{
     return new Promise((resolve, reject) => {
-        var query = 'select * from sach';
+        var query = 'select sach.*, theloai.TenTheLoai as theloai from sach, theloai where sach.IdTheLoai = theloai.Id';
         db.query(query, (err, results, fields) => {
             if(err)
                 reject(err);
@@ -22,17 +22,7 @@ exports.add=(sach)=>{
         });
     });
 }
-exports.getById = (id) => {
-    return new Promise((resolve, reject) => {
-        var query = `select * from sach where Id = ${id}`;
-        db.query(query, (err, result, fields) => {
-            if (err)
-                reject(err);
-            else
-                resolve(result[0]);
-        });
-    });
-}
+
 exports.delete = (id) => {
     return new Promise((resolve, reject) => {
         var query = `delete from sach where Id = '${id}'`;
@@ -53,5 +43,17 @@ exports.update=(sach)=>{
             else
                 resolve(result);
         }); 
+    })
+}
+
+exports.loadById=(id)=>{
+    return new Promise((resolve, reject) => {
+        var query = `select sach.Id, sach.TenSach, sach.TacGia, DATE_FORMAT(sach.NgayNhap, '%Y-%m-%d') as NgayNhap,DATE_FORMAT(sach.NamXB, '%Y') as NamXB, sach.SoLuong, sach.IdTheLoai, sach.IdNXB, theloai.TenTheLoai as theloai from sach, theloai where sach.IdTheLoai = theloai.Id and sach.Id = ${id}`
+        db.query(query, (err, result, fields) => {
+            if(err)
+                reject(err);
+            else
+                resolve(result[0])
+        })
     })
 }

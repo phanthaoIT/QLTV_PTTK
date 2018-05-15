@@ -84,7 +84,7 @@
           <td>{{NgayNhap}}</td>
           <td >{{NamXB}}</td>
           <td>{{SoLuong}}</td>
-          <td>{{IdTheLoai}}</td>
+          <td>{{theloai}}</td>
           <td>{{IdNXB}}</td>
           <td class="text-right">
             <a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
@@ -136,7 +136,7 @@
                     <label for="">Thể loại</label>
                     <select class="form-control" name="idtheloai">
                       {{#each theloai}}
-                      <option value="{{{Id}}}">{{TentheLoai}}</option>
+                      <option value="{{{Id}}}">{{TenTheLoai}}</option>
                       {{/each}}
                     </select>
                   </div>
@@ -217,7 +217,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div class="form-group">
                   <label for="">Năm xuất bản</label>
-                  <input type="date" class="form-control" id="kq4" name= "namxb" value="{{NamXB}}">
+                  <input type="text" class="form-control" id="kq4" name= "namxb" value="{{NamXB}}">
                 </div>
                 <div class="form-group">
                   <label for="">Số lượng</label>
@@ -227,9 +227,10 @@
                   <label for="">Thể loại</label>
                   <select class="form-control" name="idtheloai" id ="kq6">
                     {{#each theloai}}
-                    <option value="{{Id}}">{{TentheLoai}}</option>
+                    <option value="{{Id}}">{{TenTheLoai}}</option>
                     {{/each}}
                   </select>
+
                 </div>
                 <div class="form-group">
                   <label for="">NXB</label>
