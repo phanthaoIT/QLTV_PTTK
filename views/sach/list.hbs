@@ -84,8 +84,8 @@
           <td>{{NgayNhap}}</td>
           <td >{{NamXB}}</td>
           <td>{{SoLuong}}</td>
-          <td>{{theloai}}</td>
-          <td>{{IdNXB}}</td>
+          <td>{{TenTheLoai}}</td>
+          <td>{{TenNXB}}</td>
           <td class="text-right">
             <a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
               <i class="fa fa-pencil"></i>
@@ -124,13 +124,13 @@
                   </div>
                   <div class="form-group">
                     <label for="">Năm xuất bản</label>
-                    <input type="date" class="form-control" id="" name= "namxb">
+                    <input type="number" class="form-control" id="" name= "namxb">
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <label for="">Số lượng</label>
-                    <input type="text" class="form-control" id="" name= "soluong" placeholder="Vui lòng nhập địa chỉ">
+                    <input type="number" class="form-control" id="" name= "soluong">
                   </div>
                   <div class="form-group">
                     <label for="">Thể loại</label>
@@ -221,7 +221,7 @@
                 </div>
                 <div class="form-group">
                   <label for="">Số lượng</label>
-                  <input type="text" class="form-control" id="kq5" name= "soluong" value="{{SoLuong}}">
+                  <input type="number" class="form-control" id="kq5" name= "soluong" value="{{SoLuong}}">
                 </div>
                 <div class="form-group">
                   <label for="">Thể loại</label>

@@ -2,12 +2,8 @@ var express = require('express');
 var DG_md=require("../models/DocGia");
 var router = express.Router();
 router.get('/list', (req, res) => {
-    DG_md.loadAll().then(rows => {
-        var vm = {
-         docgia:rows,
-       };
-        res.render('DocGia/list',vm);
-    });
+    
+        res.render('MuonTra/muontra');
 });
 router.post('/list', function(req, res){
         var docgia={

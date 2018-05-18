@@ -5,15 +5,24 @@
           $('#result1').val($(this).closest('tr').find('td:nth-child(2)').text())
         });
       });
-      $(function(){
+     $(function(){
         $('.edit').click(function(e) {
-          e.preventDefault();
-          $('#kq').val($(this).closest('tr').find('td:first').text());
-          $('#kq1').val($(this).closest('tr').find('td:nth-child(2)').text());
-          $('#kq2').val($(this).closest('tr').find('td:nth-child(3)').text());
-          $('#kq3').val($(this).closest('tr').find('td:nth-child(4)').text());
-          $('#kq4').val($(this).closest('tr').find('td:nth-child(5)').text());
-          $('#kq5').val($(this).closest('tr').find('td:nth-child(6)').text());
-          $('#kq6').val($(this).closest('tr').find('td:nth-child(7)').text());
+          var id = $(this).parent().parent().find('td').eq(0).html();
+          var url = '/DocGia/editDG';
+          $.ajax({
+
+            url: url,
+            type: 'POST',
+            data: {Id: id},
+          })
+          .done(function(data) {
+            $('#kq').val(data.Id);
+            $('#kq1').val(data.TenDocGia);
+            $('#kq2').val(data.NgaySinh);
+            $('#kq3').val(data.GioiTinh);
+            $('#kq4').val(data.Email);
+            $('#kq5').val(data.DiaChi);
+            $('#kq6').val(data.NgayLapThe);
+          })
         });
       });

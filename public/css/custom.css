@@ -444,8 +444,8 @@ h3 {
   opacity: 1;
 }
 .c-menu > ul .c-menu__item:not(.is-active):hover .c-menu__item__inner {
-  background-color: #f5642d;
-  border-left-color: #f5642d;
+  background-color: #FF9933;
+  border-left-color: #FF9933;
 }
 .c-menu > ul .c-menu__item i {
   flex: 0 0 70px;
@@ -575,4 +575,3 @@ footer{
 #add__new__list{
     top: -38px;
     right: 0px;
-}
