@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/css/custom1.css">
-<div class="container">
+ <link rel="stylesheet" type="text/css" href="/css/custom1.css">
+ <div class="container">
   <div class="pricing-table pricing-three-column row">
     <div class="plan col-sm-4 col-lg-4">
       <div class="plan-name-bronze">
@@ -9,12 +9,12 @@
       <form action="" method="POST" role="form">
         <div class="form-group">
           <label for="">Tuổi độc giả</label><br>
-          <lable>Tuổi min:</lable><input type="number" class="form-control" readonly>
-          <lable>Tuổi max:</lable><input type="number" class="form-control"readonly>
+          <lable>Tuổi min:</lable><input type="number" class="form-control" value="{{GiaTri1}}" readonly >
+          <lable>Tuổi max:</lable><input type="number" class="form-control" value="{{GiaTri2}}"readonly>
         </div>
         <div class="form-group">
           <label for="">Thời hạn thẻ(tháng)</label>
-          <input type="number" class="form-control" id="" readonly>
+          <input type="number" class="form-control" id="" value="{{GiaTri3}}" readonly>
         </div>
         <button type="submit" class="btn btn-primary">Sửa</button>
       </form>
@@ -27,7 +27,7 @@
       <form action="" method="POST" role="form">
         <div class="form-group">
           <label for="">Nhận sách trong vòng(năm)</label><br>
-         <input type="number" class="form-control"readonly>
+          <input type="number" class="form-control" value="{{GiaTri4}}" readonly>
         </div>
         <button type="submit" class="btn btn-primary">Sửa</button>
       </form>
@@ -40,11 +40,11 @@
       <form action="" method="POST" role="form">
         <div class="form-group">
           <label for="">Số sách mượn tối đa</label><br>
-          <input type="number" class="form-control"readonly>
+          <input type="number" class="form-control" value="{{GiaTri5}}" readonly>
         </div>
         <div class="form-group">
           <label for="">Số ngày mượn tối đa</label>
-          <input type="number" class="form-control" id=""readonly>
+          <input type="number" class="form-control" id="" value="{{GiaTri6}}" readonly>
         </div>
         <button type="submit" class="btn btn-primary">Sửa</button>
       </form>
