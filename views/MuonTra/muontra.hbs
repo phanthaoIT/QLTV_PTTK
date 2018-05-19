@@ -4,65 +4,82 @@
       <span>Mượn sách</span>
     </div>
     <div class="panel-body">
-      <form action="" role="form" method="POST">
-        <div class="form-group">
-          <label for="">Mã Độc giả</label>
-          <input type="text" class="form-control" id="" name= "Id">
-        </div>
-        <div class="form-group">
-          <label for="">Ngày mượn</label>
-          <input type="date" class="form-control" id="" name= "ngaymuon">
-        </div>
-         <button type="submit" class="btn btn-success center-block">Kiểm tra</button>
+      <form action="muon" role="form" method="POST">
+        <label for="">Mã Độc giả</label>
+        <input type="text" class="form-control" id="" name= "madocgia">
+        <label for="">Mã sách</label>
+        <input type="text" class="form-control" id="" name= "masach">
+        <label for="">Số lượng</label>
+        <input type="number" min="1" class="form-control" id="" name= "soluong">
+        <button type="submit" class="btn btn-success center-block">Thêm</button>
       </form>
     </div>
   </div>
 </div>
-<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
   <div class="panel panel-primary">
     <div class = "panel-heading">
-      <span>Trả sách</span>
+      <span>Phiếu mượn sách</span>
     </div>
     <div class="panel-body">
-      <form action="" role="form" method="POST">
-        <div class="form-group">
-          <label for="">Mã Độc giả</label>
-          <input type="text" class="form-control" id="" name= "Id">
-        </div>
-        <div class="form-group">
-          <label for="">Mã sách</label>
-          <input type="date" class="form-control" id="" name= "ngaymuon">
-        </div>
-         <button type="submit" class="btn btn-success center-block">Kiểm tra</button>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <span>Phiếu mượn sách</span>
-  </div>
-  <div class="panel-body">
-    <label for="">Tên độc giả</label>
-    <input type="text" id="result" name="" readonly="readonly" style="border:none">
-    <label for="">Ngày mượn</label>
-    <input type="text" id="result1" name= "" readonly="readonly" style="border:none">
-    <label for="">Số lượng</label>
-    <input type="text" id="result1" name= "" readonly="readonly" style="border:none"><br><br>
-    <table class="table table-hover" id = "table">
-      <thead>
+      <label for="">Mã độc giả:</label>
+      <input type="text" id="result" name="Id" readonly="readonly" style="border:none">
+      <label for="">Tên độc giả:</label>
+      <input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
+      <label for="">Ngày mượn:</label>
+      <input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
+      <br><br>
+      <table class="table table-hover" id = "table">
+        <thead>
+          <tr>
+           <th>Tên Sách</th>
+           <th>Thể loại</th>
+           <th>Tác giả</th>
+           <th>Số lượng</th>
+         </tr>
+       </thead>
+       <tbody>
+        {{#each muontra}}
         <tr>
-          <th>STT</th>
-          <th>Sách</th>
-          <th>Thể loại</th>
-          <th>Tác giả</th>
+          <td>{{TenSach}}</td>
+          <td>{{TenTheLoai}}</td>
+          <td>{{TacGia}}</td>
+          <td>{{SoLuong}}</td>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-        </tr>
+        {{/each}}
       </tbody>
     </table>
   </div>
+</div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <span>Danh sách mượn sách</span>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover" id = "table">
+      <thead>
+        <tr>
+         <th>Tên độc giả</th>
+         <th>Tên Sách</th>
+         <th>Thể loại</th>
+         <th>Tác giả</th>
+         <th>Số lượng</th>
+         <th>Ngày mượn</th>
+       </tr>
+     </thead>
+     <tbody>
+      {{#each muontra}}
+      <tr>
+        <td>{{TenDocGia}}</td>
+        <td>{{TenSach}}</td>
+        <td>{{TenTheLoai}}</td>
+        <td>{{TacGia}}</td>
+        <td>{{SoLuong}}</td>
+        <td>{{NgayMuon}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
 </div>

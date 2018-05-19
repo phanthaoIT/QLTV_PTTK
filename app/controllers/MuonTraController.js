@@ -1,43 +1,47 @@
 var express = require('express');
-var DG_md=require("../models/DocGia");
+var MuonTra_md=require("../models/MuonTra");
+var sach_md=require("../models/Sach");
+var theloai_md = require('../models/TheLoai');
+var DG_md=require('../models/DocGia');
+var moment = require('moment');
 var router = express.Router();
 router.get('/list', (req, res) => {
-    
-        res.render('MuonTra/muontra');
+    let Sach, TheLoai, DocGia,MuonTra;
+    MuonTra_md.loadAll()
+    .then(result => {
+      MuonTra = result;
+      return sach_md.loadAll()
+    })
+    .then(result => {
+      Sach = result;
+      return theloai_md.loadAll();
+    }).then(result => {
+      TheLoai = result;
+      return DG_md.loadAll();
+    })
+    .then(result => {
+      DocGia = result;
+      res.render('MuonTra/muontra', {
+        muontra:MuonTra,
+        sach: Sach,
+        theloai: TheLoai,
+        docgia: DocGia,
+      })
+    })
 });
-router.post('/list', function(req, res){
-        var docgia={
-          'ten':req.body.ten,
-          'diachi':req.body.diachi,
-           'ngaysinh':req.body.ngaysinh,
-          'email':req.body.email,
-           'gioitinh':req.body.gioitinh,
-          'ngaylapthe':req.body.ngaylapthe,
+router.post('/muon', function(req, res){
+        var now = moment().format('YYYY/MM/DD');
+        var muontra={
+          'docgia':req.body.madocgia,
+          'sach':req.body.masach,
+          'soluong':req.body.soluong,
+          'ngaymuon': now,
         }
-    DG_md.add(docgia).then(value => {
+    MuonTra_md.add(muontra).then(value => {
         res.redirect(req.get('referer'));
     }).catch(err => {
         console.log(err);
     });
 });
 
-router.post('/delete', (req, res) => {
-    DG_md.delete(req.body.Id).then(value => {
-        res.redirect('/DocGia/list');
-  }).catch(err => {
-    console.log(err);
-});
-});
-router.post('/edit', (req, res) => {
-    DG_md.update(req.body).then(value => {
-        res.redirect('/DocGia/list');
-    });
-});
-router.post('/editDG', (req, res) => {
-    DG_md.getById(req.body.Id)
-    .then(result => {
-      res.send(result)
-    })
-     
-});
 module.exports=router;

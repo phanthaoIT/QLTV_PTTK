@@ -109,18 +109,14 @@
             </div>
             <div class="panel-body">
               <form action="list" role="form" method="POST">
-                <div class="form-group">
-                  <label for="">Tên sách</label>
-                  <input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên sách!">
-                </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label for="">Tên sách</label>
+                    <input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên sách!">
+                  </div>
                   <div class="form-group">
                     <label for="">Tác giả</label>
                     <input type="text" class="form-control" id="" name= "tacgia">
-                  </div>
-                  <div class="form-group">
-                    <label for="">Ngày nhập</label>
-                    <input type="date" class="form-control" id="" name= "ngaynhap">
                   </div>
                   <div class="form-group">
                     <label for="">Năm xuất bản</label>
@@ -196,62 +192,57 @@
             </div>
             <div class="panel-body">
               <form action="edit" role="form" method="POST">
-               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div class="form-group">
                   <label for="">ID</label>
                   <input type="text" class="form-control" id="kq" name= "Id" value ="{{Id}}" readonly>
                 </div>
-                <div class="form-group">
-                  <label for="">Tên sách</label>
-                  <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenSach}}" >
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label for="">Tên sách</label>
+                    <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenSach}}" >
+                  </div>
+                  <div class="form-group">
+                    <label for="">Tác giả</label>
+                    <input type="text" class="form-control" id="kq2" name= "tacgia" value="{{TacGia}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Năm xuất bản</label>
+                    <input type="text" class="form-control" id="kq4" name= "namxb" value="{{NamXB}}">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Tác giả</label>
-                  <input type="text" class="form-control" id="kq2" name= "tacgia" value="{{TacGia}}">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label for="">Số lượng</label>
+                    <input type="number" class="form-control" id="kq5" name= "soluong" value="{{SoLuong}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Thể loại</label>
+                    <select class="form-control" name="idtheloai" id ="kq6">
+                      {{#each theloai}}
+                      <option value="{{Id}}">{{TenTheLoai}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">NXB</label>
+                    <select class="form-control" name="idnxb" id = "kq7">
+                      {{#each nxb}}
+                      <option value="{{{Id}}}">{{TenNXB}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="">Ngày nhập</label>
-                  <input type="date" class="form-control" id="kq3" name= "ngaynhap" value="{{NgayNhap}}">
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
                 </div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <div class="form-group">
-                  <label for="">Năm xuất bản</label>
-                  <input type="text" class="form-control" id="kq4" name= "namxb" value="{{NamXB}}">
-                </div>
-                <div class="form-group">
-                  <label for="">Số lượng</label>
-                  <input type="number" class="form-control" id="kq5" name= "soluong" value="{{SoLuong}}">
-                </div>
-                <div class="form-group">
-                  <label for="">Thể loại</label>
-                  <select class="form-control" name="idtheloai" id ="kq6">
-                    {{#each theloai}}
-                    <option value="{{Id}}">{{TenTheLoai}}</option>
-                    {{/each}}
-                  </select>
-
-                </div>
-                <div class="form-group">
-                  <label for="">NXB</label>
-                  <select class="form-control" name="idnxb" id = "kq7">
-                    {{#each nxb}}
-                    <option value="{{{Id}}}">{{TenNXB}}</option>
-                    {{/each}}
-                  </select>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
-                <button type="submit" class="btn btn-primary">Save</button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 {{#section 'scripts'}}
 <script src="/Sach.js"></script>

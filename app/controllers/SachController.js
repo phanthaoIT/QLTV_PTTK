@@ -2,6 +2,7 @@ var express = require('express');
 var sach_md=require("../models/Sach");
 var theloai_md = require('../models/TheLoai.js')
 var nxb_md = require('../models/NXB.js')
+var moment = require('moment');
 var router = express.Router();
 router.get('/list', (req, res) => {
     let Sach, TheLoai, NXB;
@@ -25,10 +26,11 @@ router.get('/list', (req, res) => {
 
 });
 router.post('/list', function(req, res){
+   var now = moment().format('YYYY/MM/DD');
         var sach={
           'ten':req.body.ten,
           'tacgia':req.body.tacgia,
-          'ngaynhap':req.body.ngaynhap,
+          'ngaynhap':now,
           'namxb':req.body.namxb,
           'soluong':req.body.soluong,
           'idtheloai':req.body.idtheloai,

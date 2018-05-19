@@ -5,6 +5,7 @@ var SachController = require('../app/controllers/SachController')
 var MuonTraController = require('../app/controllers/MuonTraController')
 var TimKiemController = require('../app/controllers/TimKiemController')
 var QuyDinhController = require('../app/controllers/QuyDinhController')
+var QLTKController = require('../app/controllers/QLTKController')
 module.exports = (app) => {
 	app.get('/', (req, res) => {
 		var vm = {
@@ -20,4 +21,5 @@ module.exports = (app) => {
 	app.use('/MuonTra',MuonTraController);
 	app.use('/TimKiem',TimKiemController);
 	app.use('/QuyDinh',QuyDinhController);
+	app.use('/QLTK',QLTKController);
 } 

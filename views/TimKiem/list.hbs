@@ -1,3 +1,59 @@
+<style type="text/css">.carousel-caption { position: relative; left: 0%; right: 0%; bottom: 0px; z-index: 10; padding-top: 0px; padding-bottom: 0px; color: #000; text-shadow: none; &.btn { text-shadow: none;} } .carousel { position: relative} .controllers { position: absolute; top: 0px; } .carousel-control.left, .carousel-control.right { background-image: none; }
+</style>
+<div class="carousel slide" data-ride="carousel" id="carousel-example-generic">
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="holder col-sm-6"><img class="img-responsive" src="/img/sach1.jpg" /></div>
+      <div class="col-sm-4">
+        <div class="carousel-caption">
+          <h1>Ask A Librarian</h1>
+          <p>Borrow iPads, Tablets and Computers.
+          Subject Guides and Tutorials 24/7.</p>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="holder col-sm-6"><img alt="..." class="img-responsive" src="/img/anh2.png" /></div>
+      <div class="col-sm-4">
+        <div class="carousel-caption">
+          <h1>*15 Minutes in the Library Can Save You 15% or More Stress Related Illnesses</h1>
+          <p>*Not from actual scholarly, peer-reviewed, evidence based, or empirical research. Ask your Librarian how to find credible sources.</p>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="holder col-sm-6"><img alt="Find out more." class="img-responsive" src="/img/sach3.jpg" /></div>
+      <div class="col-sm-4">
+        <div class="carousel-caption">
+         <h1>Student Choice</h1>
+         <p>All campus libraries have unique student driven collections of books and DVDs.</p>
+       </div>
+     </div>
+   </div>
+   <div class="item">
+    <div class="holder col-sm-6"><img class="img-responsive" src="/img/sach4.jpg" /></div>
+    <div class="col-sm-4">
+      <div class="carousel-caption">
+       <h1>EasyBib</h1>
+       <p>Get past citation frustration to bibliographic fantastic. APA, MLA, Chicago and 59 other citation styles. EasyBib.</p>
+     </div>
+   </div>
+ </div>
+ <div class="controllers col-sm-4 col-xs-6">
+  <a class="left carousel-control" data-slide="prev" href="#carousel-example-generic">
+    <span class="fa fa-toggle-left"></span> 
+  </a> 
+  <a class="right carousel-control" data-slide="next" href="#carousel-example-generic">
+   <span class="fa fa-toggle-right"></span> 
+ </a>
+ <ol class="carousel-indicators">
+  <li class="active" data-slide-to="0" data-target="#carousel-example-generic"> </li>
+  <li data-slide-to="1" data-target="#carousel-example-generic"> </li>
+  <li data-slide-to="2" data-target="#carousel-example-generic"> </li>
+</ol>
+</div>
+</div>
+<br><br>
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">DANH SÁCH SÁCH</div>
@@ -10,7 +66,6 @@
           <th>Thể loại</th>
           <th>Tác giả</th>
           <th>Số lượng</th>
-          <th class="td-actions"></th>
         </tr>
       </thead>
       <tbody>
@@ -21,15 +76,6 @@
           <td>{{TenTheLoai}}</td>
           <td>{{TacGia}}</td>
           <td>{{SoLuong}}</td>
-          <td class="text-right">
-            <a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
-              <i class="fa fa-pencil"></i>
-            </a>
-
-            <a data-toggle="modal" href="#delete" class="btn btn-small btn-danger delete" role="button">
-              <i class="fa fa-trash"></i>
-            </a>
-          </td>
         </tr>
         {{/each}}
       </tbody>

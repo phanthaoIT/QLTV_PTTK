@@ -30,53 +30,59 @@
       <nav class="c-menu js-menu">
         <ul class="u-list">
           <a href="/timKiem/list">
-          <li class="c-menu__item " data-toggle="tooltip" title="Tra cứu sách">
-            <div class="c-menu__item__inner"><i class="fa fa-search"></i>
-              <div class="c-menu-item__title"><span>Tra cứu sách</span></div>
-            </div>
-          </li></a>
+            <li class="c-menu__item " data-toggle="tooltip" title="Tra cứu sách">
+              <div class="c-menu__item__inner"><i class="fa fa-search"></i>
+                <div class="c-menu-item__title"><span>Tra cứu sách</span></div>
+              </div>
+            </li>
+          </a>
           <a href="/sach/list">
-          <li class="c-menu__item " data-toggle="tooltip" title="Quản lý sách">
-            <div class="c-menu__item__inner"><i class="fa fa-book"></i>
-              <div class="c-menu-item__title"><span>Quản lý sách</span></div>
-            </div>
-          </li></a>
+            <li class="c-menu__item " data-toggle="tooltip" title="Quản lý sách">
+              <div class="c-menu__item__inner"><i class="fa fa-book"></i>
+                <div class="c-menu-item__title"><span>Quản lý sách</span></div>
+              </div>
+            </li>
+          </a>
           <a href="/DocGia/list">
-          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý độc giả">
-            <div class="c-menu__item__inner"><i class="fa fa-user"></i>
-              <div class="c-menu-item__title"><span>Quản lý độc giả</span></div>
-            </div>
-          </li></a>
+            <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý độc giả">
+              <div class="c-menu__item__inner"><i class="fa fa-user"></i>
+                <div class="c-menu-item__title"><span>Quản lý độc giả</span></div>
+              </div>
+            </li>
+          </a>
           <a href="/MuonTra/list">
-          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý mượn trả">
-            <div class="c-menu__item__inner"><i class="fa fa-exchange"></i>
-              <div class="c-menu-item__title"><span>Quản lý mượn trả</span></div>
-            </div>
-          </li></a>
-          <a href="#">
-          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý tài khoản">
-            <div class="c-menu__item__inner"><i class="fa fa-asterisk"></i>
-              <div class="c-menu-item__title"><span>Quản lý tài khoản</span></div>
-            </div>
-          </li></a>
+            <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý mượn trả">
+              <div class="c-menu__item__inner"><i class="fa fa-exchange"></i>
+                <div class="c-menu-item__title"><span>Quản lý mượn trả</span></div>
+              </div>
+            </li>
+          </a>
+          <a href="/QLTK/list">
+            <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý tài khoản">
+              <div class="c-menu__item__inner"><i class="fa fa-asterisk"></i>
+                <div class="c-menu-item__title"><span>Quản lý tài khoản</span></div>
+              </div>
+            </li>
+          </a>
           <a href="/QuyDinh/list">
-          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quy định">
-            <div class="c-menu__item__inner"><i class="fa fa-pencil-square-o"></i>
-              <div class="c-menu-item__title"><span>Quy định</span></div>
-            </div>
-          </li></a>
+            <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quy định">
+              <div class="c-menu__item__inner"><i class="fa fa-pencil-square-o"></i>
+                <div class="c-menu-item__title"><span>Quy định</span></div>
+              </div>
+            </li>
+          </a>
         </ul>
       </nav>
     </div>
   </div>
+  <main class="l-main">
+    <div class="content-wrapper content-wrapper--with-bg">
+      {{{body}}}
+    </div>
+  </main>
+  <script src="/bootstrap/jquery.min.js"></script>
+  <script src="/bootstrap/bootstrap.min.js"></script>
+  <script src="/css/custom.js"></script>
+  {{{_sections.scripts}}}
 </body>
-<main class="l-main">
-  <div class="content-wrapper content-wrapper--with-bg">
-    {{{body}}}
-  </div>
-</main>
-<script src="/bootstrap/jquery.min.js"></script>
-<script src="/bootstrap/bootstrap.min.js"></script>
-<script src="/css/custom.js"></script>
-{{{_sections.scripts}}}
-</body></html>
+</html>
