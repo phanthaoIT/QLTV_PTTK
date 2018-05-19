@@ -1,7 +1,7 @@
 var db = require("../../config/mysql")
 exports.loadAll=()=>{
 	return new Promise((resolve, reject) => {
-        var query = `select docgia.TenDocGia, sach.TenSach,sach.TacGia,theloai.TenTheLoai,DATE_FORMAT(muontra.NgayMuon, '%d/%m/%Y') as NgayMuon,muontra.SoLuong from sach, muontra,docgia,theloai where muontra.MaDocGia=docgia.Id and muontra.MaSach = sach.Id and sach.IdTheLoai = theloai.Id`;
+        var query = `select muontra.MaDocGia,docgia.TenDocGia, sach.TenSach,sach.TacGia,theloai.TenTheLoai,DATE_FORMAT(muontra.NgayMuon, '%d/%m/%Y') as NgayMuon,muontra.SoLuong,muontra.MaSach from sach, muontra,docgia,theloai where muontra.MaDocGia=docgia.Id and muontra.MaSach = sach.Id and sach.IdTheLoai = theloai.Id` ;
 		db.query(query, (err, results, fields) => {
 			if(err)
 				reject(err);
@@ -23,7 +23,7 @@ exports.add=(muontra)=>{
 }
 exports.getById = (id) => {
 	return new Promise((resolve, reject) => {
-        var query = `select docgia.Id, docgia.TenDocGia, docgia.DiaChi, DATE_FORMAT(docgia.NgaySinh, '%Y-%m-%d') as NgaySinh,docgia.Email,docgia.GioiTinh,DATE_FORMAT(docgia.NgayLapThe, '%Y-%m-%d') as NgayLapThe from docgia where docgia.Id = ${id}`
+        var query = `select docgia.Id,docgia.TenDocGia, sach.TenSach,sach.TacGia,theloai.TenTheLoai,DATE_FORMAT(muontra.NgayMuon, '%d/%m/%Y') as NgayMuon,muontra.SoLuong from sach, muontra,docgia,theloai where docgia.Id = ${id}`
 		db.query(query, (err, result, fields) => {
 			if (err)
 				reject(err);
@@ -32,20 +32,9 @@ exports.getById = (id) => {
 		});
 	});
 }
-exports.delete = (id) => {
+exports.delete = (trasach) => {
 	return new Promise((resolve, reject) => {
-		var query = `delete from docgia where Id = '${id}'`;
-		db.query(query, (err, result, fields) => {
-			if (err)
-				reject(err);
-			else
-				resolve(result);
-		}); 
-	})
-}
-exports.update=(docgia)=>{
-	return new Promise((resolve, reject) => {
-		var query = `update docgia set TenDocGia = '${docgia.ten}',NgaySinh = '${docgia.ngaysinh}',GioiTinh = '${docgia.gioitinh}',Email = '${docgia.email}',DiaChi = '${docgia.diachi}' where Id = ${docgia.Id} `;
+		var query = `delete from muontra where MaDocGia = '${trasach.id}' and MaSach='${trasach.sach}'`;
 		db.query(query, (err, result, fields) => {
 			if (err)
 				reject(err);

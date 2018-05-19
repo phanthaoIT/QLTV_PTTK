@@ -4,47 +4,54 @@
       <span>Mượn sách</span>
     </div>
     <div class="panel-body">
-      <form action="muon" role="form" method="POST">
+      <form action="" role="form" method="POST">
         <label for="">Mã Độc giả</label>
-        <input type="text" class="form-control" id="" name= "madocgia">
+        <input type="text" class="form-control" id="id1" name= "madocgia">
         <label for="">Mã sách</label>
-        <input type="text" class="form-control" id="" name= "masach">
+        <input type="text" class="form-control" id="id2" name= "masach">
         <label for="">Số lượng</label>
-        <input type="number" min="1" class="form-control" id="" name= "soluong">
-        <button type="submit" class="btn btn-success center-block">Thêm</button>
+        <input type="number" min="1" class="form-control" id="" name= "soluong"><br>
+        <button type="submit" class="btn btn-success center-block muon">Mượn sách</button>
       </form>
     </div>
   </div>
 </div>
 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
   <div class="panel panel-primary">
-    <div class = "panel-heading">
-      <span>Phiếu mượn sách</span>
+    <div class="panel-heading">
+      <span>Danh sách mượn sách</span>
     </div>
     <div class="panel-body">
-      <label for="">Mã độc giả:</label>
-      <input type="text" id="result" name="Id" readonly="readonly" style="border:none">
-      <label for="">Tên độc giả:</label>
-      <input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
-      <label for="">Ngày mượn:</label>
-      <input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
-      <br><br>
       <table class="table table-hover" id = "table">
         <thead>
           <tr>
+            <th>Mã độc giả</th>
+           <th>Tên độc giả</th>
+           <th>Mã sách</th>
            <th>Tên Sách</th>
            <th>Thể loại</th>
            <th>Tác giả</th>
            <th>Số lượng</th>
+           <th>Ngày mượn</th>
+           <th class="td-actions"></th>
          </tr>
        </thead>
        <tbody>
         {{#each muontra}}
         <tr>
+          <td>{{MaDocGia}}</td>
+          <td>{{TenDocGia}}</td>
+          <td>{{MaSach}}</td>
           <td>{{TenSach}}</td>
           <td>{{TenTheLoai}}</td>
           <td>{{TacGia}}</td>
           <td>{{SoLuong}}</td>
+          <td>{{NgayMuon}}</td>
+          <td class="text-right">
+            <a data-toggle="modal" href="#delete" class="btn btn-small btn-danger delete" role="button">
+              <i class="fa fa-trash"></i>
+            </a>
+          </td>
         </tr>
         {{/each}}
       </tbody>
@@ -52,34 +59,38 @@
   </div>
 </div>
 </div>
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <span>Danh sách mượn sách</span>
-  </div>
-  <div class="panel-body">
-    <table class="table table-hover" id = "table">
-      <thead>
-        <tr>
-         <th>Tên độc giả</th>
-         <th>Tên Sách</th>
-         <th>Thể loại</th>
-         <th>Tác giả</th>
-         <th>Số lượng</th>
-         <th>Ngày mượn</th>
-       </tr>
-     </thead>
-     <tbody>
-      {{#each muontra}}
-      <tr>
-        <td>{{TenDocGia}}</td>
-        <td>{{TenSach}}</td>
-        <td>{{TenTheLoai}}</td>
-        <td>{{TacGia}}</td>
-        <td>{{SoLuong}}</td>
-        <td>{{NgayMuon}}</td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
-</div>
+ <div class="modal" id="delete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="panel-title">Trả sách</h3>
+            </div>
+            <div class="panel-body">
+              <form action="delete" role="form" method="POST">
+                <div class="form-group">
+                  <h3>Nhận trả sách</h3>
+                  <label for="">Mã độc giả:</label>
+                  <input type="text" id="result" name="Id" readonly="readonly" style="border:none">
+                  <label for="">Mã sách:</label>
+                  <input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-primary">Hủy</button>
+                  <button type="submit" class="btn btn-danger">Nhận trả sách</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{{#section 'scripts'}}
+<script src="/MuonTra.js"></script>
+<script> $(document).ready(function () {
+  $('#table').DataTable();
+});
+</script>
+<script src ="/css/jquery.dataTables.min.js"></script>
+{{/section}}
