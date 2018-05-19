@@ -8,15 +8,16 @@
       </div>
       <form action="" method="POST" role="form">
         <div class="form-group">
+          <input type="hidden" class="form-control" name="id" value="{{Id1}}">
           <label for="">Tuổi độc giả</label><br>
-          <lable>Tuổi min:</lable><input type="number" class="form-control" value="{{GiaTri1}}" readonly >
-          <lable>Tuổi max:</lable><input type="number" class="form-control" value="{{GiaTri2}}"readonly>
+          <lable>Tuổi min:</lable><input type="number" class="form-control" name="GiaTri1" value="{{GiaTri1}}">
+          <lable>Tuổi max:</lable><input type="number" class="form-control" name ="GiaTri2" value="{{GiaTri2}}">
         </div>
         <div class="form-group">
           <label for="">Thời hạn thẻ(tháng)</label>
-          <input type="number" class="form-control" id="" value="{{GiaTri3}}" readonly>
+          <input type="number" class="form-control" name="GiaTri3" value="{{GiaTri3}}">
         </div>
-        <button type="submit" class="btn btn-primary">Sửa</button>
+       <button type="submit" class="btn btn-success" name="btn1">Lưu</button>
       </form>
     </div>
     <div style="z-index:55;" class="plan col-sm-4 col-lg-4">
@@ -25,11 +26,12 @@
         <span>Thời gian nhận sách</span>
       </div>
       <form action="" method="POST" role="form">
+          <input type="hidden" class="form-control" name="id" value="{{Id2}}">
         <div class="form-group">
           <label for="">Nhận sách trong vòng(năm)</label><br>
-          <input type="number" class="form-control" value="{{GiaTri4}}" readonly>
+          <input type="number" class="form-control" name="GiaTri1" value="{{GiaTri4}}">
         </div>
-        <button type="submit" class="btn btn-primary">Sửa</button>
+        <button type="submit" class="btn btn-success">Lưu</button>
       </form>
     </div>
     <div class="plan col-sm-4 col-lg-4">
@@ -38,15 +40,16 @@
         <span>Mượn trả</span>
       </div>
       <form action="" method="POST" role="form">
+          <input type="hidden" class="form-control" name="id" value="{{Id3}}">
         <div class="form-group">
           <label for="">Số sách mượn tối đa</label><br>
-          <input type="number" class="form-control" value="{{GiaTri5}}" readonly>
+          <input type="number" class="form-control" name="GiaTri1" value="{{GiaTri5}}">
         </div>
         <div class="form-group">
           <label for="">Số ngày mượn tối đa</label>
-          <input type="number" class="form-control" id="" value="{{GiaTri6}}" readonly>
+          <input type="number" class="form-control" name="GiaTri2" value="{{GiaTri6}}">
         </div>
-        <button type="submit" class="btn btn-primary">Sửa</button>
+        <button type="submit" class="btn btn-success">Lưu</button>
       </form>
     </div>
   </div>
