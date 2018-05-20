@@ -12,9 +12,9 @@ router.get('/list', (req, res) => {
 			GiaTri4:rows[1].GiaTri1,
 			Id3 : rows[2].Id,
 			GiaTri5:rows[2].GiaTri1,
-			GiaTri6:rows[2].GiaTri2
+			GiaTri6:rows[2].GiaTri2,
+          error: req.flash('error')
 		};
-		console.log(vm);
 		res.render('QuyDinh/list', vm);
 	});
 });

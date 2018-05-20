@@ -2,15 +2,13 @@ var express = require('express');
 var DG_md=require("../models/DocGia");
 var QuyDinh_md = require('../models/QuyDinh');
 var moment = require('moment');
-
 var router = express.Router();
 router.get('/list', (req, res) => {
     DG_md.loadAll().then(rows => {
         var vm = {
          docgia:rows,
-      errorMessage: req.flash('errorMessage')
+        error: req.flash('error')
        };
-     req.flash('errorMessage', 'Thành công!!!');
         res.render('DocGia/list',vm);
     });
 });
@@ -26,7 +24,8 @@ router.post('/list', function(req, res){
       DG_md.add(docgia).then(value => {
         res.redirect(req.get('referer'));
     }).catch(err => {
-       req.flash('errorMessage', 'Không thành công!!!');
+       req.flash('error', 'Thao tác không thành công!!!');
+        res.redirect('/DocGia/list');
     });
 });
 
@@ -34,13 +33,12 @@ router.post('/delete', (req, res) => {
     DG_md.delete(req.body.Id).then(value => {
         res.redirect('/DocGia/list');
   }).catch(err => {
-    req.flash('errorMessage', 'Không thành công!!!');
+    req.flash('error', 'Thao tác không thành công!!!');
     res.redirect('/DocGia/list');
 });
 });
 router.post('/edit', (req, res) => {
     DG_md.update(req.body).then(value => {
-        res.redirect('/DocGia/list');
         res.redirect('/DocGia/list');
     });
 });

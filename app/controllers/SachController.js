@@ -20,7 +20,8 @@ router.get('/list', (req, res) => {
       res.render('sach/list', {
         sach: Sach,
         theloai: TheLoai,
-        nxb: NXB
+        nxb: NXB,
+        error: req.flash('error')
       })
     })
 
@@ -39,7 +40,8 @@ router.post('/list', function(req, res){
     sach_md.add(sach).then(value => {
         res.redirect(req.get('referer'));
     }).catch(err => {
-        console.log(err);
+        req.flash('error', 'Thao tác không thành công!!!');
+        res.redirect('/Sach/list');
     });
 });
 
@@ -47,7 +49,8 @@ router.post('/delete', (req, res) => {
     sach_md.delete(req.body.Id).then(value => {
         res.redirect('/sach/list');
   }).catch(err => {
-    console.log(err);
+       req.flash('error', 'Thao tác không thành công!!!');
+        res.redirect('/Sach/list');
 });
 });
 router.post('/edit', (req, res) => {

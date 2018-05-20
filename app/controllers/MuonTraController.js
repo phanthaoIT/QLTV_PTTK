@@ -26,6 +26,7 @@ router.get('/list', (req, res) => {
       sach: Sach,
       theloai: TheLoai,
       docgia: DocGia,
+      error: req.flash('error')
     })
   })
 });
@@ -43,7 +44,8 @@ router.post('/list', function(req, res){
   .then(value => {
     res.redirect(req.get('referer'));
   }).catch(err => {
-    console.log(err);
+     req.flash('error', 'Thao tác không thành công!!!');
+      res.redirect('/MuonTra/list');
   });
 });
 router.post('/delete', (req, res) => {
@@ -59,7 +61,8 @@ router.post('/delete', (req, res) => {
   .then(value => {
     res.redirect('/MuonTra/list');
   }).catch(err => {
-    console.log(err);
+     req.flash('error', 'Thao tác không thành công!!!');
+      res.redirect('/MuonTra/list');
   });
 });
 module.exports=router;

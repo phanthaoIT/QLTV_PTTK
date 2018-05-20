@@ -5,6 +5,7 @@ router.get('/list', (req, res) => {
     theloai_md.loadAll().then(rows => {
         var vm = {
          theloai:rows,
+          error: req.flash('error')
        };
         res.render('TheLoai/list', vm);
     });
@@ -16,7 +17,8 @@ router.post('/list', function(req, res){
     theloai_md.add(theloai).then(value => {
         res.redirect(req.get('referer'));
     }).catch(err => {
-        console.log(err);
+        req.flash('error', 'Thao tác không thành công!!!');
+        res.redirect('/TheLoai/list');
     });
 });
 
@@ -24,7 +26,8 @@ router.post('/delete', (req, res) => {
     theloai_md.delete(req.body.Id).then(value => {
         res.redirect('/TheLoai/list');
   }).catch(err => {
-    console.log(err);
+    req.flash('error', 'Thao tác không thành công!!!');
+        res.redirect('/TheLoai/list');
 });
 });
 router.post('/edit', (req, res) => {
