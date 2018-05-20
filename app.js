@@ -6,8 +6,11 @@ var express_handlebars_sections = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
+var passport = require('passport');
 var logger = require('morgan');
 var mysql = require('./config/mysql');
+var session = require('express-session')
 var app = express();
 var server = http.createServer(app);
 // view engine setup
@@ -20,7 +23,6 @@ app.engine('hbs', exphbs({
     }
 }));
 var Handlebars = require('handlebars');
-
 Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
 
     switch (operator) {
@@ -56,7 +58,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({secret: '{secret}', name: 'session_id', saveUninitialized: true, resave: true}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 require('./routes/index')(app);
+
 // catch 404 and forward to error handler
 //app.use(function(req, res, next) {
   //next(createError(404));

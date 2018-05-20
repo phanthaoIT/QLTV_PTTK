@@ -8,7 +8,9 @@ router.get('/list', (req, res) => {
     DG_md.loadAll().then(rows => {
         var vm = {
          docgia:rows,
+      errorMessage: req.flash('errorMessage')
        };
+     req.flash('errorMessage', 'Thành công!!!');
         res.render('DocGia/list',vm);
     });
 });
@@ -24,7 +26,7 @@ router.post('/list', function(req, res){
       DG_md.add(docgia).then(value => {
         res.redirect(req.get('referer'));
     }).catch(err => {
-        res.end(err);
+       req.flash('errorMessage', 'Không thành công!!!');
     });
 });
 
@@ -32,11 +34,13 @@ router.post('/delete', (req, res) => {
     DG_md.delete(req.body.Id).then(value => {
         res.redirect('/DocGia/list');
   }).catch(err => {
-    console.log(err);
+    req.flash('errorMessage', 'Không thành công!!!');
+    res.redirect('/DocGia/list');
 });
 });
 router.post('/edit', (req, res) => {
     DG_md.update(req.body).then(value => {
+        res.redirect('/DocGia/list');
         res.redirect('/DocGia/list');
     });
 });
@@ -45,6 +49,5 @@ router.post('/editDG', (req, res) => {
     .then(result => {
       res.send(result)
     })
-     
 });
 module.exports=router;
