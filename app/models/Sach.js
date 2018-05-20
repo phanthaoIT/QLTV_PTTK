@@ -57,3 +57,14 @@ exports.loadById=(id)=>{
         })
     })
 }
+exports.updateSL=(sach)=>{
+    return new Promise((resolve, reject) => {
+        var query = `update sach set SoLuong = SoLuong-'${sach.soluong}' where Id = ${sach.sach} `;
+        db.query(query, (err, result, fields) => {
+            if (err)
+                reject(err);
+            else
+                resolve(result);
+        }); 
+    })
+}

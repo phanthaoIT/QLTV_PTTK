@@ -37,7 +37,10 @@ router.post('/list', function(req, res){
     'soluong':req.body.soluong,
     'ngaymuon': now,
   }
-  MuonTra_md.add(muontra).then(value => {
+  MuonTra_md.add(muontra).then(results => {
+        return sach_md.updateSL(muontra);
+    })
+  .then(value => {
     res.redirect(req.get('referer'));
   }).catch(err => {
     console.log(err);
@@ -47,8 +50,12 @@ router.post('/delete', (req, res) => {
   var trasach={
     'id':req.body.Id,
     'sach':req.body.ten,
+    'soluong':req.body.sl
   }
-  MuonTra_md.delete(trasach).then(value => {
+  MuonTra_md.delete(trasach).then(results => {
+        return sach_md.updateSL({soluong: -trasach.soluong, sach:trasach.sach});
+    })
+  .then(value => {
     res.redirect('/MuonTra/list');
   }).catch(err => {
     console.log(err);
