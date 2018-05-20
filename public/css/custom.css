@@ -248,9 +248,8 @@ h3 {
 .header-icons-group {
   display: flex;
   order: 3;
-  margin-left: auto;
+  /*margin-left:auto;*/
   height: 100%;
-  border-left: 1px solid #cccccc;
 }
 .header-icons-group .c-header-icon:last-child {
   border-right: 0;
@@ -266,7 +265,6 @@ h3 {
   justify-content: center;
   line-height: 1;
   cursor: pointer;
-  border-right: 1px solid #cccccc;
 }
 .c-header-icon i {
   font-size: 24px;

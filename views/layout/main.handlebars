@@ -16,73 +16,82 @@
       <div class="c-header-icon js-hamburger">
         <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
       </div>
-      <h3 class="title">QUẢN LÝ THƯ VIỆN</h3>
       <div class="header-icons-group">
-        <div class="c-header-icon logout"><i class="fa fa-user"></i></div>
+       <div class="c-header-icon logout">
+        <ul class="nav pull-right">
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/QLTK/editP"><i class="fa fa-edit"></i>Cập nhật thông tin</a></li>
+              <li class="divider"></li>
+              <li><a href="/"><i class=" fa fa-power-off"></i> Logout</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
-  </header>
-  <div class="l-sidebar">
-    <div class="logo">
-      <div class="logo__txt fa fa-tags"></div>
-    </div>
-    <div class="l-sidebar__content">
-      <nav class="c-menu js-menu">
-        <ul class="u-list">
-          <a href="/timKiem/list">
-            <li class="c-menu__item " data-toggle="tooltip" title="Tra cứu sách">
-              <div class="c-menu__item__inner"><i class="fa fa-search"></i>
-                <div class="c-menu-item__title"><span>Tra cứu sách</span></div>
-              </div>
-            </li>
-          </a>
-          <a href="/sach/list">
-            <li class="c-menu__item " data-toggle="tooltip" title="Quản lý sách">
-              <div class="c-menu__item__inner"><i class="fa fa-book"></i>
-                <div class="c-menu-item__title"><span>Quản lý sách</span></div>
-              </div>
-            </li>
-          </a>
-          <a href="/DocGia/list">
-            <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý độc giả">
-              <div class="c-menu__item__inner"><i class="fa fa-user"></i>
-                <div class="c-menu-item__title"><span>Quản lý độc giả</span></div>
-              </div>
-            </li>
-          </a>
-          <a href="/MuonTra/list">
-            <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý mượn trả">
-              <div class="c-menu__item__inner"><i class="fa fa-exchange"></i>
-                <div class="c-menu-item__title"><span>Quản lý mượn trả</span></div>
-              </div>
-            </li>
-          </a>
-          <a href="/QLTK/list">
-            <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý tài khoản">
-              <div class="c-menu__item__inner"><i class="fa fa-asterisk"></i>
-                <div class="c-menu-item__title"><span>Quản lý tài khoản</span></div>
-              </div>
-            </li>
-          </a>
-          <a href="/QuyDinh/list">
-            <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quy định">
-              <div class="c-menu__item__inner"><i class="fa fa-pencil-square-o"></i>
-                <div class="c-menu-item__title"><span>Quy định</span></div>
-              </div>
-            </li>
-          </a>
-        </ul>
-      </nav>
-    </div>
   </div>
-  <main class="l-main">
-    <div class="content-wrapper content-wrapper--with-bg">
-      {{{body}}}
-    </div>
-  </main>
-  <script src="/bootstrap/jquery.min.js"></script>
-  <script src="/bootstrap/bootstrap.min.js"></script>
-  <script src="/css/custom.js"></script>
-  {{{_sections.scripts}}}
+</header>
+<div class="l-sidebar">
+  <div class="logo">
+    <div class="logo__txt fa fa-tags"></div>
+  </div>
+  <div class="l-sidebar__content">
+    <nav class="c-menu js-menu">
+      <ul class="u-list">
+        <a href="/timKiem/list">
+          <li class="c-menu__item " data-toggle="tooltip" title="Tra cứu sách">
+            <div class="c-menu__item__inner"><i class="fa fa-search"></i>
+              <div class="c-menu-item__title"><span>Tra cứu sách</span></div>
+            </div>
+          </li>
+        </a>
+        <a href="/sach/list">
+          <li class="c-menu__item " data-toggle="tooltip" title="Quản lý sách">
+            <div class="c-menu__item__inner"><i class="fa fa-book"></i>
+              <div class="c-menu-item__title"><span>Quản lý sách</span></div>
+            </div>
+          </li>
+        </a>
+        <a href="/DocGia/list">
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý độc giả">
+            <div class="c-menu__item__inner"><i class="fa fa-user"></i>
+              <div class="c-menu-item__title"><span>Quản lý độc giả</span></div>
+            </div>
+          </li>
+        </a>
+        <a href="/MuonTra/list">
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý mượn trả">
+            <div class="c-menu__item__inner"><i class="fa fa-exchange"></i>
+              <div class="c-menu-item__title"><span>Quản lý mượn trả</span></div>
+            </div>
+          </li>
+        </a>
+        <a href="/QLTK/list">
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý tài khoản">
+            <div class="c-menu__item__inner"><i class="fa fa-asterisk"></i>
+              <div class="c-menu-item__title"><span>Quản lý tài khoản</span></div>
+            </div>
+          </li>
+        </a>
+        <a href="/QuyDinh/list">
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quy định">
+            <div class="c-menu__item__inner"><i class="fa fa-pencil-square-o"></i>
+              <div class="c-menu-item__title"><span>Quy định</span></div>
+            </div>
+          </li>
+        </a>
+      </ul>
+    </nav>
+  </div>
+</div>
+<main class="l-main">
+  <div class="content-wrapper content-wrapper--with-bg">
+    {{{body}}}
+  </div>
+</main>
+<script src="/bootstrap/jquery.min.js"></script>
+<script src="/bootstrap/bootstrap.min.js"></script>
+<script src="/css/custom.js"></script>
+{{{_sections.scripts}}}
 </body>
 </html>

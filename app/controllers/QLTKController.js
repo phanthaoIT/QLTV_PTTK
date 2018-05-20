@@ -10,6 +10,9 @@ router.get('/list', (req, res) => {
  res.render('QLTK/taikhoan',vm);
 });
 });
+router.get('/editP',(req,res)=>{
+  res.render('QLTK/Edit');
+});
 router.post('/list', function(req, res){
   var thuthu={
     'ten':req.body.ten,
