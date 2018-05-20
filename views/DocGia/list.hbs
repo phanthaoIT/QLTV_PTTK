@@ -1,3 +1,9 @@
+              {{#if showAlert}}
+<div class="alert alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  {{error}}
+</div>
+{{/if}}
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">DANH SÁCH ĐỘC GIẢ</div>
@@ -54,10 +60,12 @@
               <h3 class="panel-title">Lập thẻ độc giả</h3>
             </div>
             <div class="panel-body">
+
               <form action="list" role="form" method="POST">
+
                 <div class="form-group">
                   <label for="">Tên Độc giả</label>
-                  <input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên độc giả!">
+                  <input type="text" class="form-control" id="tdg" name= "ten" placeholder="Vui lòng nhập tên độc giả!">
                 </div>
                 <div class="form-group">
                   <label for="">Ngày sinh</label>
@@ -84,7 +92,7 @@
                 </div>
                 <div class="modal-footer">
                   <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
-                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="submit" class="btn btn-primary add">Save</button>
                 </div>
               </form>
             </div>
@@ -129,53 +137,53 @@
             </div>
             <div class="panel-body">
              <form action="edit" role="form" method="POST">
-                <div class="form-group">
-                   <label for="">ID</label>
-                  <input type="text" class="form-control" id="kq" name= "Id" value="{{Id}}" readonly><br>
-                  <label for="">Tên Độc giả</label>
-                  <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenDocGia}}">
-                </div>
-                <div class="form-group">
-                  <label for="">Ngày sinh</label>
-                  <input type="date" class="form-control" id="kq2" name= "ngaysinh" value="{{NgaySinh}}">
-                </div>
-                <div class="form-group">
-                  <label for="">Giới tính</label>
-                  <select class="form-control" name="gioitinh" id="kq3">
-                    <option value="1">Nam</option>
-                    <option value="0">Nữ</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="">Email</label>
-                  <input type="text" class="form-control" id="kq4" name= "email" value="{{Email}}">
-                </div>
-                <div class="form-group">
-                  <label for="">Điạ chỉ</label>
-                  <input type="text" class="form-control" id="kq5" name= "diachi" value="{{DiaChi}}">
-                </div>
-                <div class="form-group">
-                  <label for="">Ngày lập thẻ</label>
-                  <input type="date" class="form-control" id="kq6" name= "ngaylapthe" value="{{NgayLapthe}}">
-                </div>
-                <div class="modal-footer">
-                  <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
-                  <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-              </form>
+              <div class="form-group">
+               <label for="">ID</label>
+               <input type="text" class="form-control" id="kq" name= "Id" value="{{Id}}" readonly><br>
+               <label for="">Tên Độc giả</label>
+               <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenDocGia}}">
+             </div>
+             <div class="form-group">
+              <label for="">Ngày sinh</label>
+              <input type="date" class="form-control" id="kq2" name= "ngaysinh" value="{{NgaySinh}}">
             </div>
-          </div>
+            <div class="form-group">
+              <label for="">Giới tính</label>
+              <select class="form-control" name="gioitinh" id="kq3">
+                <option value="1">Nam</option>
+                <option value="0">Nữ</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="text" class="form-control" id="kq4" name= "email" value="{{Email}}">
+            </div>
+            <div class="form-group">
+              <label for="">Điạ chỉ</label>
+              <input type="text" class="form-control" id="kq5" name= "diachi" value="{{DiaChi}}">
+            </div>
+            <div class="form-group">
+              <label for="">Ngày lập thẻ</label>
+              <input type="date" class="form-control" id="kq6" name= "ngaylapthe" value="{{NgayLapthe}}">
+            </div>
+            <div class="modal-footer">
+              <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 {{#section 'scripts'}}
 <script src="/DocGia.js"></script>
 <script> $(document).ready(function () {
         //bootstrap WYSIHTML5 - text editor
         $('#table').DataTable();
-    });
+      });
 </script>
 <script src ="/css/jquery.dataTables.min.js"></script>
 {{/section}}

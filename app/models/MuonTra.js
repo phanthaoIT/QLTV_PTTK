@@ -1,7 +1,7 @@
 var db = require("../../config/mysql")
 exports.loadAll=()=>{
 	return new Promise((resolve, reject) => {
-        var query = `select muontra.MaDocGia,docgia.TenDocGia, sach.TenSach,sach.TacGia,theloai.TenTheLoai,DATE_FORMAT(muontra.NgayMuon, '%d/%m/%Y') as NgayMuon,muontra.SoLuong,muontra.MaSach from sach, muontra,docgia,theloai where muontra.MaDocGia=docgia.Id and muontra.MaSach = sach.Id and sach.IdTheLoai = theloai.Id` ;
+        var query = `select muontra.MaDocGia,docgia.TenDocGia, sach.TenSach,sach.TacGia,theloai.TenTheLoai,DATE_FORMAT(muontra.NgayMuon, '%d/%m/%Y') as NgayMuon,muontra.MaSach from sach, muontra,docgia,theloai where muontra.MaDocGia=docgia.Id and muontra.MaSach = sach.Id and sach.IdTheLoai = theloai.Id` ;
 		db.query(query, (err, results, fields) => {
 			if(err)
 				reject(err);
@@ -12,7 +12,7 @@ exports.loadAll=()=>{
 }
 exports.add=(muontra)=>{
 	return new Promise((resolve, reject) => {
-		var query = `insert into muontra(MaDocGia,MaSach,SoLuong,NgayMuon) values('${muontra.docgia}','${muontra.sach}','${muontra.soluong}','${muontra.ngaymuon}')`;
+		var query = `insert into muontra(MaDocGia,MaSach,NgayMuon) values('${muontra.docgia}','${muontra.sach}','${muontra.ngaymuon}')`;
 		db.query(query, (err, results, fields) => {
 			if(err)
 				reject(err);
@@ -23,7 +23,7 @@ exports.add=(muontra)=>{
 }
 exports.getById = (id) => {
 	return new Promise((resolve, reject) => {
-        var query = `select docgia.Id,docgia.TenDocGia, sach.TenSach,sach.TacGia,theloai.TenTheLoai,DATE_FORMAT(muontra.NgayMuon, '%d/%m/%Y') as NgayMuon,muontra.SoLuong from sach, muontra,docgia,theloai where docgia.Id = ${id}`
+        var query = `select docgia.Id,docgia.TenDocGia, sach.TenSach,sach.TacGia,theloai.TenTheLoai,DATE_FORMAT(muontra.NgayMuon, '%d/%m/%Y') as NgayMuon from sach, muontra,docgia,theloai where docgia.Id = ${id}`
 		db.query(query, (err, result, fields) => {
 			if (err)
 				reject(err);

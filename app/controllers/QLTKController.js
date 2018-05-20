@@ -16,8 +16,14 @@ router.post('/list', function(req, res){
     'sdt':req.body.sdt,
     'ngaysinh':req.body.ngaysinh,
     'gioitinh':req.body.gioitinh,
+    'username':req.body.username,
+    'pass':req.body.pass,
+
   }
-  TK_md.add(thuthu).then(value => {
+  TK_md.add(thuthu).then(results =>{
+        return TK_md.addacc(thuthu);
+  })
+  .then(value => {
     res.redirect(req.get('referer'));
   }).catch(err => {
     console.log(err);

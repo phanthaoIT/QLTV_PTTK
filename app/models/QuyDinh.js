@@ -21,3 +21,14 @@ exports.update=(quydinh)=>{
         }); 
     })
 }
+exports.getById=(id)=>{
+    return new Promise((resolve, reject) => {
+        var query = `select GiaTri1,GiaTri2, GiaTri3 from quydinh where Id = ${id} `;
+        db.query(query, (err, result, fields) => {
+            if (err)
+                reject(err);
+            else
+                resolve(result);
+        }); 
+    })
+}

@@ -1,5 +1,8 @@
 var express = require('express');
 var DG_md=require("../models/DocGia");
+var QuyDinh_md = require('../models/QuyDinh');
+var moment = require('moment');
+
 var router = express.Router();
 router.get('/list', (req, res) => {
     DG_md.loadAll().then(rows => {
@@ -18,10 +21,10 @@ router.post('/list', function(req, res){
            'gioitinh':req.body.gioitinh,
           'ngaylapthe':req.body.ngaylapthe,
         }
-    DG_md.add(docgia).then(value => {
+      DG_md.add(docgia).then(value => {
         res.redirect(req.get('referer'));
     }).catch(err => {
-        console.log(err);
+        res.end(err);
     });
 });
 

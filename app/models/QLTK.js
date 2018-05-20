@@ -54,3 +54,14 @@ exports.update=(thuthu)=>{
 		}); 
 	})
 }
+exports.addacc=(thuthu)=>{
+	return new Promise((resolve, reject) => {
+		var query = `insert into taikhoan(Username,Pass,Quyen,IdThuThu) values('${thuthu.username}','${thuthu.pass}','1','1')`;
+		db.query(query, (err, results, fields) => {
+			if(err)
+				reject(err);
+			else
+				resolve(results);
+		});
+	});
+}

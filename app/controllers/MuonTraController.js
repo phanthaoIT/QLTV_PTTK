@@ -34,7 +34,7 @@ router.post('/list', function(req, res){
   var muontra={
     'docgia':req.body.madocgia,
     'sach':req.body.masach,
-    'soluong':req.body.soluong,
+    'soluong':1,
     'ngaymuon': now,
   }
   MuonTra_md.add(muontra).then(results => {
@@ -50,10 +50,11 @@ router.post('/delete', (req, res) => {
   var trasach={
     'id':req.body.Id,
     'sach':req.body.ten,
-    'soluong':req.body.sl
+    'soluong':-1
   }
   MuonTra_md.delete(trasach).then(results => {
-        return sach_md.updateSL({soluong: -trasach.soluong, sach:trasach.sach});
+    console.log(results);
+        return sach_md.updateSL(trasach);
     })
   .then(value => {
     res.redirect('/MuonTra/list');
