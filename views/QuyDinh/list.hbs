@@ -10,12 +10,12 @@
         <div class="form-group">
           <input type="hidden" class="form-control" name="id" value="{{Id1}}">
           <label for="">Tuổi độc giả</label><br>
-          <lable>Tuổi min:</lable><input type="number" id ="id1" class="form-control" name="GiaTri1" value="{{GiaTri1}}" >
-          <lable>Tuổi max:</lable><input type="number" id = "id2" class="form-control" name ="GiaTri2" value="{{GiaTri2}}" >
+          <lable>Tuổi min:</lable><input type="number" id ="id1" class="form-control" name="GiaTri1" value="{{GiaTri1}}" min ="1"required >
+          <lable>Tuổi max:</lable><input type="number" id = "id2" class="form-control" name ="GiaTri2" value="{{GiaTri2}}" min = "1" required>
         </div>
         <div class="form-group">
           <label for="">Thời hạn thẻ(tháng)</label>
-          <input type="number" class="form-control"  id = "id3" name="GiaTri3" value="{{GiaTri3}}" >
+          <input type="number" class="form-control"  id = "id3" name="GiaTri3" value="{{GiaTri3}}" min ="1"required>
         </div>
        <button type="submit" class="btn btn-success" name="btn1">Lưu</button>
       </form>
@@ -29,7 +29,7 @@
           <input type="hidden" class="form-control" name="id" value="{{Id2}}">
         <div class="form-group">
           <label for="">Nhận sách trong vòng(năm)</label><br>
-          <input type="number" class="form-control" name="GiaTri1" value="{{GiaTri4}}" >
+          <input type="number" class="form-control" name="GiaTri1" value="{{GiaTri4}}" min="1" required>
         </div>
         <button type="submit" class="btn btn-success">Lưu</button>
       </form>
@@ -43,11 +43,11 @@
           <input type="hidden" class="form-control" name="id" value="{{Id3}}">
         <div class="form-group">
           <label for="">Số sách mượn tối đa</label><br>
-          <input type="number" class="form-control" name="GiaTri1" value="{{GiaTri5}}" >
+          <input type="number" class="form-control" name="GiaTri1" value="{{GiaTri5}}" min ="1" required>
         </div>
         <div class="form-group">
           <label for="">Số ngày mượn tối đa</label>
-          <input type="number" class="form-control" name="GiaTri2" value="{{GiaTri6}}" >
+          <input type="number" class="form-control" name="GiaTri2" value="{{GiaTri6}}" min="1" required>
         </div>
         <button type="submit" class="btn btn-success">Lưu</button>
       </form>

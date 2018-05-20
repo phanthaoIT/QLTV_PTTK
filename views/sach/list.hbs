@@ -118,21 +118,21 @@
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <label for="">Tên sách</label>
-                    <input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên sách!">
+                    <input type="text" class="form-control" id="" name= "ten" placeholder="Vui lòng nhập tên sách!" required>
                   </div>
                   <div class="form-group">
                     <label for="">Tác giả</label>
-                    <input type="text" class="form-control" id="" name= "tacgia">
+                    <input type="text" class="form-control" id="" name= "tacgia"required>
                   </div>
                   <div class="form-group">
                     <label for="">Năm xuất bản</label>
-                    <input type="number" class="form-control" id="" name= "namxb">
+                    <input type="number" class="form-control" id="" name= "namxb"required>
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <label for="">Số lượng</label>
-                    <input type="number" class="form-control" id="" name= "soluong">
+                    <input type="number" class="form-control" id=""min ="1" name= "soluong" required>
                   </div>
                   <div class="form-group">
                     <label for="">Thể loại</label>
@@ -205,21 +205,21 @@
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <label for="">Tên sách</label>
-                    <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenSach}}" >
+                    <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenSach}}"required >
                   </div>
                   <div class="form-group">
                     <label for="">Tác giả</label>
-                    <input type="text" class="form-control" id="kq2" name= "tacgia" value="{{TacGia}}">
+                    <input type="text" class="form-control" id="kq2" name= "tacgia" value="{{TacGia}}"required>
                   </div>
                   <div class="form-group">
                     <label for="">Năm xuất bản</label>
-                    <input type="text" class="form-control" id="kq4" name= "namxb" value="{{NamXB}}">
+                    <input type="text" class="form-control" id="kq4" name= "namxb" value="{{NamXB}}"required>
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                   <div class="form-group">
                     <label for="">Số lượng</label>
-                    <input type="number" class="form-control" id="kq5" name= "soluong" value="{{SoLuong}}">
+                    <input type="number" class="form-control" id="kq5" name= "soluong" value="{{SoLuong}}"min ="1" required>
                   </div>
                   <div class="form-group">
                     <label for="">Thể loại</label>
