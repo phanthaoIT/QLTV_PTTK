@@ -13,7 +13,9 @@ module.exports = (app) => {
 		};
 		res.render('login',vm)
 	})
-
+	app.get('/home',(req,res)=>{
+		res.render('home')
+	})
 	app.use('/TheLoai', TheLoaiController);
 	app.use('/NXB', NXBController);
 	app.use('/DocGia', DocGiaController);

@@ -1,0 +1,74 @@
+
+.imgbox{
+			width:200px;
+			height:200px;
+			float:left;
+			padding:6px;
+			margin:30px 0 30px 40px;					
+			border-radius:10px;
+			background-color:#056bce;
+			transition:background-color 0.25s linear 0;
+			-webkit-transition:background-color 0.25s linear 0;
+			-o-transition:background-color 0.25s linear 0;
+			-ms-transition:background-color 0.25s linear 0;
+			-moz-transition:background-color 0.25s linear 0;
+		}
+		.imgbox a{
+			text-decoration:none;
+		}
+		.imgbox:hover{
+			background-color:#FA4141;
+			transition:background-color 0.25s linear 0;
+			-webkit-transition:background-color 0.25s linear 0;
+			-o-transition:background-color 0.25s linear 0;
+			-ms-transition:background-color 0.25s linear 0;
+			-moz-transition:background-color 0.25s linear 0;
+			box-shadow:0 0 20px #000;
+			-webkit-box-shadow:0 0 20px #000;
+			-moz-box-shadow:0 0 20px #000;
+			-o-box-shadow:0 0 20px #000;
+			-ms-box-shadow:0 0 20px #000;	
+		}
+		
+		.imgbox:hover .catimage{
+			border-color:#056bce;
+			transition:border-color 0.25s linear 0;
+			-webkit-transition:border-color 0.25s linear 0;
+			-moz-transition:border-color 0.25s linear 0;
+			-o-transition:border-color 0.25s linear 0;
+			-ms-transition:border-color 0.25s linear 0;
+			
+		}
+		.imgbox .catimage{
+			width:200px;
+			height:200px;			
+			border:solid 5px #babbbb;
+			border-radius:10px;
+			overflow:hidden;
+			transition:border-color 0.25s linear 0;
+			-webkit-transition:border-color 0.25s linear 0;
+			-moz-transition:border-color 0.25s linear 0;
+			-o-transition:border-color 0.25s linear 0;
+			-ms-transition:border-color 0.25s linear 0;
+		}
+		
+		.catlablel{
+			text-align:center;
+			font-size:20px;
+			color:green;
+			margin-top:250px;
+		}
+		
+		
+		#cat1{
+			background:url('../img/book.jpg');background-position:0 0;transition:all 0.5s ease-in 0;
+		}
+		#cat2{
+			background:url(../img/reader.jpg);background-position:0 0;transition:all 0.5s ease-in 0;
+		}
+		#cat3{
+			background:url(../img/borrow.jpg);background-position:0 0;transition:all 0.5s ease-in 0;
+		}
+		#cat4{
+			background:url(../img/rules.jpg);background-position:0 0;transition:all 0.5s ease-in 0;
+		}
