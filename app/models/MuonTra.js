@@ -43,3 +43,14 @@ exports.delete = (trasach) => {
 		}); 
 	})
 }
+exports.count = (id) => {
+	return new Promise((resolve, reject) => {
+		var query = `SELECT count(*) as SL FROM muontra WHERE MaDocGia=${id}`;
+		db.query(query, (err, result, fields) => {
+			if (err)
+				reject(err);
+			else
+				resolve(result[0]);
+		}); 
+	})
+}
