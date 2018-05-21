@@ -13,6 +13,11 @@ router.get('/list', (req, res) => {
 router.get('/editP',(req,res)=>{
   res.render('QLTK/Edit');
 });
+router.post('/editP',(req,res)=>{
+  TK_md.update(req.body).then(value => {
+    res.redirect('/QLTK/list');
+  });
+});
 router.post('/list', function(req, res){
   var thuthu={
     'ten':req.body.ten,
@@ -52,6 +57,6 @@ router.post('/editTK', (req, res) => {
   .then(result => {
     res.send(result)
   })
-
 });
+
 module.exports=router;

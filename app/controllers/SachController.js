@@ -1,8 +1,9 @@
 var express = require('express');
 var sach_md=require("../models/Sach");
-var theloai_md = require('../models/TheLoai.js')
-var nxb_md = require('../models/NXB.js')
+var theloai_md = require('../models/TheLoai')
+var nxb_md = require('../models/NXB')
 var moment = require('moment');
+var QuyDinh_md = require('../models/QuyDinh')
 var router = express.Router();
 router.get('/list', (req, res) => {
     let Sach, TheLoai, NXB;
@@ -37,12 +38,20 @@ router.post('/list', function(req, res){
           'idtheloai':req.body.idtheloai,
           'idnxb':req.body.idnxb,
         }
-    sach_md.add(sach).then(value => {
-        res.redirect(req.get('referer'));
-    }).catch(err => {
-        req.flash('error', 'Thao tác không thành công!!!');
-        res.redirect('/Sach/list');
-    });
+        QuyDinh_md.getById(2).then(value=>{
+            QD = value[0].GiaTri1;
+            if (moment().format('YYYY')-sach.namxb >QD){
+                req.flash('error', 'Chỉ nhận sách trong vòng '+ QD +' năm!!!');
+                res.redirect('/Sach/list');
+            }else{
+                sach_md.add(sach).then(value => {
+                res.redirect(req.get('referer'));
+                }).catch(err => {
+                req.flash('error', 'Thao tác không thành công!!!');
+                res.redirect('/Sach/list');
+                });
+               }
+      })
 });
 
 router.post('/delete', (req, res) => {
