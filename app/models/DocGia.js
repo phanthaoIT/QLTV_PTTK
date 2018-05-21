@@ -13,7 +13,6 @@ exports.loadAll=()=>{
 exports.add=(docgia)=>{
 	return new Promise((resolve, reject) => {
 		var query = `insert into docgia(TenDocGia,DiaChi,NgaySinh,Email,GioiTinh,NgaylapThe,HanThe) values('${docgia.ten}','${docgia.diachi}','${docgia.ngaysinh}','${docgia.email}','${docgia.gioitinh}','${docgia.ngaylapthe}','${docgia.hanthe}')`;
-		console.log(query);
 		db.query(query, (err, results, fields) => {
 			if(err)
 				reject(err);
@@ -55,4 +54,5 @@ exports.update=(docgia)=>{
 		}); 
 	})
 }
+
 
