@@ -23,6 +23,7 @@
           <th>Email</th>
           <th>Địa chỉ</th>
           <th>Ngày lập thẻ</th>
+          <th>Hạn thẻ</th>
           <th class="td-actions"></th>
         </tr>
       </thead>
@@ -38,6 +39,7 @@
           <td>{{Email}}</td>
           <td>{{DiaChi}}</td>
           <td>{{NgayLapThe}}</td>
+          <td>{{HanThe}}</td>
           <td class="text-right">
             <a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
               <i class="fa fa-pencil"></i>
@@ -85,10 +87,6 @@
                 <div class="form-group">
                   <label for="">Điạ chỉ</label>
                   <input type="text" class="form-control" id="" name= "diachi" placeholder="Vui lòng nhập địa chỉ" required>
-                </div>
-                <div class="form-group">
-                  <label for="">Ngày lập thẻ</label>
-                  <input type="date" class="form-control" id="" name= "ngaylapthe" required>
                 </div>
                 <div class="modal-footer">
                   <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
@@ -161,10 +159,6 @@
             <div class="form-group">
               <label for="">Điạ chỉ</label>
               <input type="text" class="form-control" id="kq5" name= "diachi" value="{{DiaChi}}" required>
-            </div>
-            <div class="form-group">
-              <label for="">Ngày lập thẻ</label>
-              <input type="date" class="form-control" id="kq6" name= "ngaylapthe" value="{{NgayLapthe}}" required>
             </div>
             <div class="modal-footer">
               <button data-dismiss="modal" class="btn btn-danger">Hủy</button>

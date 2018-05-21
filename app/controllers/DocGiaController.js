@@ -13,20 +13,25 @@ router.get('/list', (req, res) => {
     });
 });
 router.post('/list', function(req, res){
-        var docgia={
+         var now = moment().format('YYYY/MM/DD');
+          QuyDinh_md.getById(1).then(value=>{
+            QD = value[0].GiaTri3;
+            var docgia={
           'ten':req.body.ten,
           'diachi':req.body.diachi,
            'ngaysinh':req.body.ngaysinh,
           'email':req.body.email,
            'gioitinh':req.body.gioitinh,
-          'ngaylapthe':req.body.ngaylapthe,
+          'ngaylapthe':now,
+          'hanthe': moment().add(QD, 'months').format('YYYY/MM/DD')
         }
-      DG_md.add(docgia).then(value => {
-        res.redirect(req.get('referer'));
-    }).catch(err => {
-       req.flash('error', 'Thao tác không thành công!!!');
-        res.redirect('/DocGia/list');
-    });
+        DG_md.add(docgia).then(value => {
+          res.redirect(req.get('referer'));
+        }).catch(err => {
+              req.flash('error', 'Thao tác không thành công!!!');
+              res.redirect('/DocGia/list');
+        });
+    })
 });
 
 router.post('/delete', (req, res) => {

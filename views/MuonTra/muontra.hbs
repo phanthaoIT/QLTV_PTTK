@@ -36,6 +36,7 @@
             <th>Thể loại</th>
             <th>Tác giả</th>
             <th>Ngày mượn</th>
+             <th>Hạn trả</th>
             <th class="td-actions"></th>
           </tr>
         </thead>
@@ -49,6 +50,7 @@
             <td>{{TenTheLoai}}</td>
             <td>{{TacGia}}</td>
             <td>{{NgayMuon}}</td>
+            <td>{{HanTra}}</td>
             <td class="text-right">
               <a data-toggle="modal" href="#delete" class="btn btn-small btn-success delete" role="button">
                 <i class="fa fa-paper-plane-o"></i>
@@ -77,6 +79,7 @@
               <input type="text" id="result" name="Id" readonly="readonly" style="border:none">
               <label for="">Mã sách:</label>
               <input type="text" id="result1" name= "ten" readonly="readonly" style="border:none">
+              <input type="hidden" id="result2" name= "han" style="border:none">
             </div>
             <div class="modal-footer">
               <button data-dismiss="modal" class="btn btn-primary">Hủy</button>

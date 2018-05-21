@@ -3,6 +3,7 @@ var MuonTra_md=require("../models/MuonTra");
 var sach_md=require("../models/Sach");
 var theloai_md = require('../models/TheLoai');
 var DG_md=require('../models/DocGia');
+var QuyDinh_md=require('../models/QuyDinh');
 var moment = require('moment');
 var router = express.Router();
 router.get('/list', (req, res) => {
@@ -32,37 +33,54 @@ router.get('/list', (req, res) => {
 });
 router.post('/list', function(req, res){
   var now = moment().format('YYYY/MM/DD');
-  var muontra={
+  QuyDinh_md.getById(4).then(value=>{
+    QD = value[0].GiaTri2;
+    var muontra={
     'docgia':req.body.madocgia,
     'sach':req.body.masach,
     'soluong':1,
     'ngaymuon': now,
+    'hantra': moment().add(QD, 'days').format('YYYY/MM/DD')
   }
-  MuonTra_md.add(muontra).then(results => {
+  DG_md.getById(muontra.docgia).then(value=>{
+    if (moment().format('YYYY-MM-DD') < value.HanThe)
+    {
+      req.flash('error', 'Thẻ thư viện đã hết hạn!!!');
+      res.redirect('/MuonTra/list');
+    }
+    else{
+      MuonTra_md.add(muontra).then(results => {
         return sach_md.updateSL(muontra);
-    })
-  .then(value => {
-    res.redirect(req.get('referer'));
-  }).catch(err => {
-     req.flash('error', 'Thao tác không thành công!!!');
-      res.redirect('/MuonTra/list');
+      })
+      .then(value => {
+        res.redirect(req.get('referer'));
+      }).catch(err => {
+       req.flash('error', 'Thao tác không thành công!!!');
+       res.redirect('/MuonTra/list');
+     });
+    }
   });
+  })
 });
-router.post('/delete', (req, res) => {
-  var trasach={
-    'id':req.body.Id,
-    'sach':req.body.ten,
-    'soluong':-1
-  }
-  MuonTra_md.delete(trasach).then(results => {
-    console.log(results);
-        return sach_md.updateSL(trasach);
+  router.post('/delete', (req, res) => {
+    var now = moment().format('DD/MM/YYYY');
+    var trasach={
+      'id':req.body.Id,
+      'sach':req.body.ten,
+      'soluong':-1,
+      'hantra': req.body.han
+    }
+    MuonTra_md.delete(trasach).then(results => {
+      if (now > trasach.hantra)
+        req.flash('error', 'Độc giả trả sách quá hạn!!');
+      return sach_md.updateSL(trasach);
     })
-  .then(value => {
-    res.redirect('/MuonTra/list');
-  }).catch(err => {
-     req.flash('error', 'Thao tác không thành công!!!');
+    .then(value => {
       res.redirect('/MuonTra/list');
+    }).catch(err => {
+      console.log(err);
+     req.flash('error', 'Thao tác không thành công!!!');
+     res.redirect('/MuonTra/list');
+   });
   });
-});
-module.exports=router;
+  module.exports=router;

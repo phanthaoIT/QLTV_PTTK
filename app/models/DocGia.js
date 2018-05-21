@@ -1,7 +1,7 @@
 var db = require("../../config/mysql")
 exports.loadAll=()=>{
 	return new Promise((resolve, reject) => {
-		var query =  `select docgia.Id,docgia.TenDocGia,docgia.DiaChi,DATE_FORMAT(docgia.NgaySinh, '%d/%m/%Y') as NgaySinh,docgia.Email,docgia.GioiTinh,DATE_FORMAT(docgia.NgayLapThe, '%d/%m/%Y') as NgayLapThe from docgia`;
+		var query =  `select docgia.Id,docgia.TenDocGia,docgia.DiaChi,DATE_FORMAT(docgia.NgaySinh, '%d/%m/%Y') as NgaySinh,docgia.Email,docgia.GioiTinh,DATE_FORMAT(docgia.NgayLapThe, '%d/%m/%Y') as NgayLapThe,DATE_FORMAT(docgia.HanThe, '%d/%m/%Y') as HanThe from docgia`;
 		db.query(query, (err, results, fields) => {
 			if(err)
 				reject(err);
@@ -12,7 +12,7 @@ exports.loadAll=()=>{
 }
 exports.add=(docgia)=>{
 	return new Promise((resolve, reject) => {
-		var query = `insert into docgia(TenDocGia,DiaChi,NgaySinh,Email,GioiTinh,NgaylapThe) values('${docgia.ten}','${docgia.diachi}','${docgia.ngaysinh}','${docgia.email}','${docgia.gioitinh}','${docgia.ngaylapthe}')`;
+		var query = `insert into docgia(TenDocGia,DiaChi,NgaySinh,Email,GioiTinh,NgaylapThe,HanThe) values('${docgia.ten}','${docgia.diachi}','${docgia.ngaysinh}','${docgia.email}','${docgia.gioitinh}','${docgia.ngaylapthe}','${docgia.hanthe}')`;
 		console.log(query);
 		db.query(query, (err, results, fields) => {
 			if(err)
@@ -24,7 +24,7 @@ exports.add=(docgia)=>{
 }
 exports.getById = (id) => {
 	return new Promise((resolve, reject) => {
-        var query = `select docgia.Id, docgia.TenDocGia, docgia.DiaChi, DATE_FORMAT(docgia.NgaySinh, '%Y-%m-%d') as NgaySinh,docgia.Email,docgia.GioiTinh,DATE_FORMAT(docgia.NgayLapThe, '%Y-%m-%d') as NgayLapThe from docgia where docgia.Id = ${id}`
+        var query = `select docgia.Id, docgia.TenDocGia, docgia.DiaChi, DATE_FORMAT(docgia.NgaySinh, '%Y-%m-%d') as NgaySinh,docgia.Email,docgia.GioiTinh,DATE_FORMAT(docgia.NgayLapThe, '%Y-%m-%d') as NgayLapThe,DATE_FORMAT(docgia.HanThe, '%Y-%m-%d') as HanThe from docgia where docgia.Id = ${id}`
 		db.query(query, (err, result, fields) => {
 			if (err)
 				reject(err);
