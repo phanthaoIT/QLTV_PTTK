@@ -10,14 +10,14 @@
         <div class="form-group">
           <input type="hidden" class="form-control" name="id" value="{{Id1}}">
           <label for="">Tuổi độc giả</label><br>
-          <lable>Tuổi min:</lable><input type="number" id ="id1" class="form-control" name="GiaTri1" value="{{GiaTri1}}" min ="1"required >
-          <lable>Tuổi max:</lable><input type="number" id = "id2" class="form-control" name ="GiaTri2" value="{{GiaTri2}}" min = "1" required>
+          <lable>Tuổi min:</lable><input type="number" id ="id1" class="form-control qd1" name="GiaTri1" value="{{GiaTri1}}" min ="1"required readonly="true">
+          <lable>Tuổi max:</lable><input type="number" id = "id2" class="form-control qd1" name ="GiaTri2" value="{{GiaTri2}}" min = "1" required readonly="true">
         </div>
         <div class="form-group">
           <label for="">Thời hạn thẻ(tháng)</label>
-          <input type="number" class="form-control"  id = "id3" name="GiaTri3" value="{{GiaTri3}}" min ="1"required>
+          <input type="number" class="form-control qd1"  id = "id3" name="GiaTri3" value="{{GiaTri3}}" min ="1"required readonly="true">
         </div>
-       <button type="submit" class="btn btn-success" name="btn1">Lưu</button>
+       <button type="button" class="btn btn-success" id="btn1" name="btn1">Sửa</button>
       </form>
     </div>
     <div style="z-index:55;" class="plan col-sm-4 col-lg-4">
@@ -29,9 +29,9 @@
           <input type="hidden" class="form-control" name="id" value="{{Id2}}">
         <div class="form-group">
           <label for="">Nhận sách trong vòng(năm)</label><br>
-          <input type="number" class="form-control" name="GiaTri1" value="{{GiaTri4}}" min="1" required>
+          <input type="number" class="form-control qd2" name="GiaTri1" value="{{GiaTri4}}" min="1" required readonly="true">
         </div>
-        <button type="submit" class="btn btn-success">Lưu</button>
+        <button type="button" class="btn btn-success" id="btn2"name='btn2'>Sửa</button>
       </form>
     </div>
     <div class="plan col-sm-4 col-lg-4">
@@ -43,14 +43,18 @@
           <input type="hidden" class="form-control" name="id" value="{{Id3}}">
         <div class="form-group">
           <label for="">Số sách mượn tối đa</label><br>
-          <input type="number" class="form-control" name="GiaTri1" value="{{GiaTri5}}" min ="1" required>
+          <input type="number" class="form-control qd3" name="GiaTri1" value="{{GiaTri5}}" min ="1" required readonly="true">
         </div>
         <div class="form-group">
           <label for="">Số ngày mượn tối đa</label>
-          <input type="number" class="form-control" name="GiaTri2" value="{{GiaTri6}}" min="1" required>
+          <input type="number" class="form-control qd3" name="GiaTri2" value="{{GiaTri6}}" min="1" required readonly="true">
         </div>
-        <button type="submit" class="btn btn-success">Lưu</button>
+        <button type="button" class="btn btn-success" id ="btn3" name="btn3">Sửa</button>
       </form>
     </div>
   </div>
 </div>
+
+{{#section 'scripts'}}
+<script src="/QuiDinh.js"></script>
+{{/section}}
