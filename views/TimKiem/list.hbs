@@ -13,56 +13,56 @@
     <header id="header" class="alt">
         <div class="logo"><a href="index.html">Chào mừng bạn đến với thư viện</a></div>
         <div style="margin-right: 50px">
-            <p>Email: thuvien@hcmus.edu.vn</p>
-        </div>
-    </header>
-    <section id="banner">
-        <div class="inner">
-            <h1>LIBARARY</h1>
-            <p>Thư viện là kho tàng chứa tất cả của cải tinh thần của loài người.</p>
-            <form action="" method="POST" accept-charset="utf-8">
-                <div class="input-group col-md-12">
-                    <input type="text" class="search-query form-control" placeholder="Search" style="color: white" id ="search" name ="search"/><br>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <!-- One -->
-    <section id="one" class="wrapper style2">
-        <div class="inner">
-            <div>
-                <div class="box">
-                    {{#if kt}}
-                 <table>
-                     <thead>
-                         <tr>
-                            <th></th>
-                            <th>Tên sách</th>
-                            <th>Tác giả</th>
-                            <th>Số lượng còn lại</th>
-                            <th>Thể loại</th>
-                            <th>Tên NXB</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                     <tr>
-                        {{#each sach}}
-                        <tr>
-                            <td><img src="/img/img.jpg"></td>
-                            <td>{{TenSach}}</td>
-                            <td>{{TacGia}}</td>
-                            <td>{{SoLuong}}</td>
-                            <td>{{TenTheLoai}}</td>
-                            <td>{{TenNXB}}</td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-{{/if}}
+         <a href="">Log in</a>
+     </div>
+ </header>
+ <section id="banner">
+    <div class="inner">
+        <h1>LIBARARY</h1>
+        <p>Thư viện là kho tàng chứa tất cả của cải tinh thần của loài người.</p>
+        <form action="" method="POST" accept-charset="utf-8">
+            <div class="input-group col-md-12">
+                <input type="text" class="search-query form-control" placeholder="Search" style="color: white" id ="search" name ="search"/><br>
             </div>
+        </form>
+    </div>
+</section>
+
+<!-- One -->
+<section id="one" class="wrapper style2">
+    <div class="inner">
+        <div>
+            <div class="box">
+                {{#if kt}}
+                <table>
+                   <thead>
+                       <tr>
+                        <th></th>
+                        <th>Tên sách</th>
+                        <th>Tác giả</th>
+                        <th>Số lượng còn lại</th>
+                        <th>Thể loại</th>
+                        <th>Tên NXB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                    {{#each sach}}
+                    <tr>
+                        <td><img src="/img/img.jpg"></td>
+                        <td>{{TenSach}}</td>
+                        <td>{{TacGia}}</td>
+                        <td>{{SoLuong}}</td>
+                        <td>{{TenTheLoai}}</td>
+                        <td>{{TenNXB}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
         </div>
     </div>
+</div>
 </div>
 </section>
 
