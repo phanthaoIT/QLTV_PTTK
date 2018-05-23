@@ -68,3 +68,15 @@ exports.updateSL=(sach)=>{
         }); 
     })
 }
+exports.search=(t)=>{
+    return new Promise((resolve, reject) => {
+        var query = `select sach.Id,sach.TenSach,sach.TacGia,sach.SoLuong,nxb.TenNXB , theloai.TenTheLoai from sach, nxb , theloai where sach.IdNXB = nxb.Id and sach.IdTheLoai = theloai.Id and sach.TenSach like "%${t}%"`;
+       console.log(query);
+        db.query(query, (err, results, fields) => {
+            if(err)
+                reject(err);
+            else
+                resolve(results);
+        });
+    });
+}

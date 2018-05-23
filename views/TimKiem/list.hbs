@@ -1,92 +1,140 @@
-<style type="text/css">.carousel-caption { position: relative; left: 0%; right: 0%; bottom: 0px; z-index: 10; padding-top: 0px; padding-bottom: 0px; color: #000; text-shadow: none; &.btn { text-shadow: none;}; background: #FFFF;} .carousel { position: relative} .controllers { position: absolute; top: 0px; } .carousel-control.left, .carousel-control.right { background-image: none; }
-</style>
-<div class="carousel slide" data-ride="carousel" id="carousel-example-generic">
-  <div class="carousel-inner ">
-    <div class="item active">
-      <div class="holder col-sm-6"><img class="img-responsive" src="/img/sach1.jpg" /></div>
-      <div class="col-sm-4">
-        <div class="carousel-caption">
-          <h1>Ask A Librarian</h1>
-          <p>Borrow iPads, Tablets and Computers.
-          Subject Guides and Tutorials 24/7.</p>
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Thư viện</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <div class="logo"><a href="index.html">Chào mừng bạn đến với thư viện</a></div>
+        <div style="margin-right: 50px">
+            <p>Email: thuvien@hcmus.edu.vn</p>
         </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="holder col-sm-6"><img alt="..." class="img-responsive" src="/img/anh2.png" /></div>
-      <div class="col-sm-4">
-        <div class="carousel-caption">
-          <h1>*15 Minutes in the Library Can Save You 15% or More Stress Related Illnesses</h1>
-          <p>*Not from actual scholarly, peer-reviewed, evidence based, or empirical research. Ask your Librarian how to find credible sources.</p>
+    </header>
+    <section id="banner">
+        <div class="inner">
+            <h1>LIBARARY</h1>
+            <p>Thư viện là kho tàng chứa tất cả của cải tinh thần của loài người.</p>
+            <form action="" method="POST" accept-charset="utf-8">
+                <div class="input-group col-md-12">
+                    <input type="text" class="search-query form-control" placeholder="Search" style="color: white" id ="search" name ="search"/><br>
+                </div>
+            </form>
         </div>
-      </div>
+    </section>
+
+    <!-- One -->
+    <section id="one" class="wrapper style2">
+        <div class="inner">
+            <div>
+                <div class="box">
+                    {{#if kt}}
+                 <table>
+                     <thead>
+                         <tr>
+                            <th></th>
+                            <th>Tên sách</th>
+                            <th>Tác giả</th>
+                            <th>Số lượng còn lại</th>
+                            <th>Thể loại</th>
+                            <th>Tên NXB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                     <tr>
+                        {{#each sach}}
+                        <tr>
+                            <td><img src="/img/img.jpg"></td>
+                            <td>{{TenSach}}</td>
+                            <td>{{TacGia}}</td>
+                            <td>{{SoLuong}}</td>
+                            <td>{{TenTheLoai}}</td>
+                            <td>{{TenNXB}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+{{/if}}
+            </div>
+        </div>
     </div>
-    <div class="item">
-      <div class="holder col-sm-6"><img alt="Find out more." class="img-responsive" src="/img/sach3.jpg" /></div>
-      <div class="col-sm-4">
-        <div class="carousel-caption">
-         <h1>Student Choice</h1>
-         <p>All campus libraries have unique student driven collections of books and DVDs.</p>
-       </div>
-     </div>
-   </div>
-   <div class="item">
-    <div class="holder col-sm-6"><img class="img-responsive" src="/img/sach4.jpg" /></div>
-    <div class="col-sm-4">
-      <div class="carousel-caption">
-       <h1>EasyBib</h1>
-       <p>Get past citation frustration to bibliographic fantastic. APA, MLA, Chicago and 59 other citation styles. EasyBib.</p>
-     </div>
-   </div>
- </div>
- <div class="controllers col-sm-4 col-xs-6">
-  <a class="left carousel-control" data-slide="prev" href="#carousel-example-generic">
-    <span class="fa fa-toggle-left"></span> 
-  </a> 
-  <a class="right carousel-control" data-slide="next" href="#carousel-example-generic">
-   <span class="fa fa-toggle-right"></span> 
- </a>
- <ol class="carousel-indicators">
-  <li class="active" data-slide-to="0" data-target="#carousel-example-generic"> </li>
-  <li data-slide-to="1" data-target="#carousel-example-generic"> </li>
-  <li data-slide-to="2" data-target="#carousel-example-generic"> </li>
-</ol>
 </div>
-</div>
-<br><br>
-<div class="panel panel-primary">
-  <!-- Default panel contents -->
-  <div class="panel-heading">DANH SÁCH SÁCH</div>
-  <div class="panel-body">
-    <table class="table table-hover" id ="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Tên sách</th>
-          <th>Thể loại</th>
-          <th>Tác giả</th>
-          <th>Số lượng</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each sach}}
-        <tr>
-          <td id="id">{{Id}}</td>
-          <td>{{TenSach}}</td>
-          <td>{{TenTheLoai}}</td>
-          <td>{{TacGia}}</td>
-          <td>{{SoLuong}}</td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-</div>
-{{#section 'scripts'}}
-<script src="/Sach.js"></script>
-<script> $(document).ready(function () {
-  $('#table').DataTable();
-});
-</script>
-<script src ="/css/jquery.dataTables.min.js"></script>
-{{/section}}
+</section>
+
+<!-- Two -->
+<section id="two" class="wrapper style3">
+    <div class="inner">
+        <div id="flexgrid">
+            <div>
+                <header>
+                    <h3>Giờ mở cửa</h3>
+                </header>
+                <p>Sáng: 7.30 AM - 11.30 AM</p>
+                <p>Chiều: 1.30 PM - 5.30 PM</p>
+                <p>----Từ thứ 2- thứ 6----</p>
+            </div>
+            <div>
+                <header>
+                    <h3>THẺ THƯ VIỆN</h3>
+                </header>
+                <p>Mang theo Thẻ sinh viên/học viên/cán bộ/giảng viên và Chứng minh thư hoặc Hộ chiếu.</p>
+                <p>Độc giả có thể chụp ảnh trực tiếp hoặc mang theo hình thẻ 3×4 khi đến làm thẻ.</p>
+            </div>
+            <div>
+                <header>
+                    <h3>Liên hệ</h3>
+                </header>
+                <p>Trực tiếp: quầy Lưu hành TVTT/TVTT.</p>
+                <p>Email: thuvien@hcmus.edu.vn</p>
+                <p>Điện thoại: (08) 37242181 – 2930</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Three -->
+<section id="three" class="wrapper style2">
+    <div class="inner">
+        <div class="grid-style">
+        </div>
+    </div>
+</section>
+
+<!-- Four -->
+<section id="four" class="wrapper style3">
+    <div class="inner">
+
+        <header class="align-center">
+            <h2>THƯ VIỆN TRUNG TÂM</h2>
+            <p>Tôi bước chân vào thư viện và khép cửa lại. Như thế là tôi đã tách khỏi tính tham lam, lòng tự ái, tệ say rượu và sự lười biếng củng tất cả những thói hư tật xấu do cái dốt nát, sự vô công rỗi nghề và cảnh sầu tư sinh ra. Tôi đắm mình vào cái vĩnh hằng giữa những tác giả tuyệt diệu với một niềm tự hào, với một cảm giác thỏa mãn đến mức cảm thấy thương hại tất cả các ông quan lớn sang trọng và giàu có nhưng không được hưởng niềm hạnh phúc này.
+                (D. Henziut)
+            </p>
+        </header>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer" class="wrapper">
+    <div class="inner">
+        <div class="copyright">
+            <a><h4>Design by: Phan Thị Thảo- Nguyễn Cao Thiên.</h4></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>

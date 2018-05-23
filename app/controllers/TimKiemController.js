@@ -2,9 +2,15 @@ var express = require('express');
 var sach_md=require("../models/Sach");
 var theloai_md = require('../models/TheLoai')
 var router = express.Router();
-router.get('/list', (req, res) => {
+router.get('/list',(req,res)=>{
+    res.render('TimKiem/list',{
+      layout:false
+    })
+})
+router.post('/list', (req, res) => {
     let Sach, TheLoai;
-    sach_md.loadAll()
+    console.log(req.body.search);
+    sach_md.search(req.body.search)
     .then(result => {
       Sach = result;
       return theloai_md.loadAll()
@@ -12,7 +18,9 @@ router.get('/list', (req, res) => {
     .then(result => {
       res.render('TimKiem/list', {
         sach: Sach,
-        theloai: TheLoai
+        theloai: TheLoai,
+        layout: false,
+        kt: true
       })
     })
 
