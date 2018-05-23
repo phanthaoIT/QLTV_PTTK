@@ -57,7 +57,6 @@ router.post('/list', function(req, res){
         }
         else{
           MuonTra_md.count(muontra.docgia).then(value=>{
-            console.log(value.SL);
             if(value.SL <5){
               MuonTra_md.add(muontra).then(results => {
                 return sach_md.updateSL(muontra);
@@ -70,15 +69,15 @@ router.post('/list', function(req, res){
               });
             }
             else{
-            req.flash('error', 'Số sách bạn mượn vượt quá quy định!!!');
-            res.redirect('/MuonTra/list');
+              req.flash('error', 'Số sách bạn mượn vượt quá quy định!!!');
+              res.redirect('/MuonTra/list');
             }
-          }).catch(err => {
-            req.flash('error', 'Mã sách không đúng!!!');
-            res.redirect('/MuonTra/list');
-          });
+          })
         }
-      })
+      }).catch(err => {
+        req.flash('error', 'Mã sách không đúng!!!');
+        res.redirect('/MuonTra/list');
+      });
     }
   }).catch(err => {
    req.flash('error', 'mã độc giả không đúng!!!');
