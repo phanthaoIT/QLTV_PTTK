@@ -1,6 +1,25 @@
 var express = require('express');
 var TK_md=require("../models/QLTK");
 var router = express.Router();
+var LoginController = require("../controllers/LogIn");
+var middleware = require("../../config/middleward");
+
+router.get('/',middleware.LoggedAdmin, LoginController.formAdminLogin);
+router.post('/', middleware.LoggedAdmin, LoginController.adminLogin);
+
+
+router.get('/taikhoan',middleware.isAdminAccess,(req,res) =>{
+  if (req.session.user)
+        res.render('TimKiem/list', {
+            layout: 'main',
+            title: 'Admin Dashboard',
+            user: req.user,
+            message: req.flash('message')[0]
+        });
+    else
+        res.redirect('/login');
+})
+
 router.get('/list', (req, res) => {
  TK_md.loadAll().then(rows => {
   var vm = {
