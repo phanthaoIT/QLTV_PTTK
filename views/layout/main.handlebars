@@ -40,7 +40,7 @@
   <div class="l-sidebar__content">
     <nav class="c-menu js-menu">
       <ul class="u-list">
-        {{#ifCond user.Quyen '==' 2}} 
+        {{#ifCond user.Quyen '==' 1}} 
         <a href="/timKiem/list">
           <li class="c-menu__item " data-toggle="tooltip" title="Tra cứu sách">
             <div class="c-menu__item__inner"><i class="fa fa-search"></i>
@@ -79,7 +79,7 @@
         </a>
         {{/ifCond}}
 
-        {{#ifCond user.Quyen '=='1}}
+        {{#ifCond user.Quyen '==' 2}}
         <a href="/QLTK/list">
           <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý tài khoản">
             <div class="c-menu__item__inner"><i class="fa fa-asterisk"></i>

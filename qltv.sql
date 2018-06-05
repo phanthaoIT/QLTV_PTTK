@@ -35,7 +35,8 @@ CREATE TABLE `docgia` (
   `NgaySinh` date NOT NULL,
   `Email` text COLLATE utf8_unicode_ci NOT NULL,
   `GioiTinh` int(1) NOT NULL,
-  `NgayLapThe` date NOT NULL
+  `NgayLapThe` date NOT NULL,
+  `HanThe` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --

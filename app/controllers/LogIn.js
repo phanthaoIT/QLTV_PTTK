@@ -1,4 +1,5 @@
 var passport = require('passport')
+var middleware = require("../../config/middleward");
 
 var LogInController = {
     formAdminLogin: (req,res)=>{
@@ -12,21 +13,31 @@ var LogInController = {
     adminLogin: (req,res)=>{
         passport.authenticate('local-login', (err,user,info)=>{
             if(err){
-                return res.redirect('/login')
+                return res.redirect('/QLTK')
             }
             if(!user){
-                return res.redirect('/login')
+                return res.redirect('/QLTK')
             }
             req.logIn(user, err=>{
                 if(err) return console.log(err)
                   
                     req.session.user = user;
-                    if (req.body.remember) {
-                        req.session.cookie.originalMaxAge = 1000 * 60 * 3;
-                    }
-                    else
-                        req.session.cookie.originalMaxAge = false;
-                return res.redirect('QLTK/taikhoan')
+                if (req.body.remember) {
+                    req.session.cookie.originalMaxAge = 1000 * 60 * 3;
+                }
+                else
+                    req.session.cookie.originalMaxAge = false;
+                if(user.Quyen == 2){
+                    return res.redirect('QLTK/taikhoan')
+                }
+                else if(user.Quyen==1)
+                {
+                    return res.render('home')
+                }
+                    
+              
+               
+              
             })
 
         })(req,res)

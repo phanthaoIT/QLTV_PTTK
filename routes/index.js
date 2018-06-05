@@ -6,18 +6,15 @@ var MuonTraController = require('../app/controllers/MuonTraController')
 var TimKiemController = require('../app/controllers/TimKiemController')
 var QuyDinhController = require('../app/controllers/QuyDinhController')
 var QLTKController = require('../app/controllers/QLTKController')
+var AuthorController =  require("../app/controllers/AuthorController")
+var mw = require('../config/middleward')
 
 module.exports = (app,passport) => {
-	/*app.get('/', (req, res) => {
+	app.get('/', (req, res) => {
 		
 		res.render('TimKiem/list')
 	});
-	app.get('/login',function(req,res){
-		res.render('login', {
-			layout:false
-		});
-
-	});
+	
 
 
 	/*app.post('/login',(req,res)=> passport.authenticate('local-login', (err,user,info) =>{
@@ -47,7 +44,8 @@ module.exports = (app,passport) => {
 app.get('/admin',function(req,res){
 	res.render('NXB/list');
 })*/
-	app.use('/QLTK',QLTKController);
+	app.use('/QLTK',mw.isAdminAccess,QLTKController);
+	app.use('/home',mw.isLoggedInAdmin,mw.isThuThuAccess, AuthorController);
 	app.use('/TheLoai', TheLoaiController);
 	app.use('/NXB', NXBController);
 	app.use('/DocGia', DocGiaController);

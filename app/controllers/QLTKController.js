@@ -9,15 +9,16 @@ router.post('/', middleware.LoggedAdmin, LoginController.adminLogin);
 
 
 router.get('/taikhoan',middleware.isAdminAccess,(req,res) =>{
+    console.log("da vao tai khoan")
   if (req.session.user)
-        res.render('TimKiem/list', {
+        res.render('admin', {
             layout: 'main',
             title: 'Admin Dashboard',
             user: req.user,
             message: req.flash('message')[0]
         });
     else
-        res.redirect('/login');
+        res.redirect('/QLTK');
 })
 
 router.get('/list', (req, res) => {
