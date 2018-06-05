@@ -9,7 +9,7 @@ router.post('/', middleware.LoggedAdmin, LoginController.adminLogin);
 
 
 router.get('/taikhoan',middleware.isAdminAccess,(req,res) =>{
-    console.log("da vao tai khoan")
+
   if (req.session.user)
         res.render('admin', {
             layout: 'main',
@@ -78,5 +78,7 @@ router.post('/editTK', (req, res) => {
     res.send(result)
   })
 });
+
+
 
 module.exports=router;

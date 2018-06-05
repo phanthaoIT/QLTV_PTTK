@@ -15,8 +15,12 @@ router.get('/',middleware.isThuThuAccess,(req,res) =>{
             user: req.user,
             message: req.flash('message')[0]
         });
-    else
+    else      
         res.redirect('/QLTK');
+
+    
 })
+
+
 
 module.exports=router;

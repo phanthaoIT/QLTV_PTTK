@@ -8,6 +8,8 @@ var QuyDinhController = require('../app/controllers/QuyDinhController')
 var QLTKController = require('../app/controllers/QLTKController')
 var AuthorController =  require("../app/controllers/AuthorController")
 var mw = require('../config/middleward')
+var LogoutController = require("../app/controllers/Logout")
+
 
 module.exports = (app,passport) => {
 	app.get('/', (req, res) => {
@@ -55,6 +57,8 @@ app.get('/admin',function(req,res){
 	app.use('/MuonTra',mw.isLoggedInAdmin,mw.isThuThuAccess,MuonTraController);
 	app.use('/TimKiem',mw.isLoggedInAdmin,mw.isThuThuAccess,TimKiemController);
 	app.use('/QuyDinh',QuyDinhController);
+	app.use('/logout', LogoutController)
+	
 
 } 
 
