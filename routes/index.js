@@ -11,8 +11,10 @@ var mw = require('../config/middleward')
 
 module.exports = (app,passport) => {
 	app.get('/', (req, res) => {
-		
-		res.render('TimKiem/list')
+		var vm ={
+			layout:false
+		}
+		res.render('TimKiem/list',vm)
 	});
 	
 
@@ -46,12 +48,12 @@ app.get('/admin',function(req,res){
 })*/
 	app.use('/QLTK',mw.isAdminAccess,QLTKController);
 	app.use('/home',mw.isLoggedInAdmin,mw.isThuThuAccess, AuthorController);
-	app.use('/TheLoai', TheLoaiController);
-	app.use('/NXB', NXBController);
-	app.use('/DocGia', DocGiaController);
-	app.use('/Sach', SachController);
-	app.use('/MuonTra',MuonTraController);
-	app.use('/TimKiem',TimKiemController);
+	app.use('/TheLoai',mw.isLoggedInAdmin,mw.isThuThuAccess, TheLoaiController);
+	app.use('/NXB',mw.isLoggedInAdmin,mw.isThuThuAccess, NXBController);
+	app.use('/DocGia',mw.isLoggedInAdmin,mw.isThuThuAccess, DocGiaController);
+	app.use('/Sach',mw.isLoggedInAdmin,mw.isThuThuAccess, SachController);
+	app.use('/MuonTra',mw.isLoggedInAdmin,mw.isThuThuAccess,MuonTraController);
+	app.use('/TimKiem',mw.isLoggedInAdmin,mw.isThuThuAccess,TimKiemController);
 	app.use('/QuyDinh',QuyDinhController);
 
 } 

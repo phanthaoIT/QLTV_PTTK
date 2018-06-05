@@ -2,7 +2,7 @@ var middleware = {
     isLoggedInAdmin: (req,res,next) =>{
         if(req.isAuthenticated())
             return next()
-        res.redirect('/admin');
+        res.redirect('/QLTK');
     },
 
     LoggedAdmin: (req,res,next) =>{

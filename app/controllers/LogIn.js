@@ -47,7 +47,7 @@ var LogInController = {
         req.logout();
         if(!req.session.cookie.expires)
             req.session.destroy();
-        res.redirect('/login');
+        res.redirect('/QLTK');
     },
 
     logout: (res,req,next) =>{
