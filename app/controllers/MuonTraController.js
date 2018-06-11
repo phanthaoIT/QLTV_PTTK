@@ -27,6 +27,7 @@ router.get('/list', (req, res) => {
       sach: Sach,
       theloai: TheLoai,
       docgia: DocGia,
+      user: req.user,
       error: req.flash('error')
     })
   })

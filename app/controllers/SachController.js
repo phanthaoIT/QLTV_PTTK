@@ -19,6 +19,7 @@ router.get('/list', (req, res) => {
     .then(result => {
       NXB = result;
       res.render('sach/list', {
+        user: req.user,
         sach: Sach,
         theloai: TheLoai,
         nxb: NXB,

@@ -4,6 +4,7 @@ var router = express.Router();
 router.get('/list', (req, res) => {
 	QD_md.loadAll().then(rows => {
 		var vm = {
+			 user: req.user,
 			Id1 : rows[0].Id,
 			GiaTri1:rows[0].GiaTri1,
 			GiaTri2:rows[0].GiaTri2,

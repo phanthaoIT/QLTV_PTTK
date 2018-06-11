@@ -9,11 +9,9 @@ router.post('/', middleware.LoggedAdmin, LoginController.adminLogin);
 
 
 router.get('/taikhoan',middleware.isAdminAccess,(req,res) =>{
-
   if (req.session.user)
         res.render('admin', {
             layout: 'main',
-            title: 'Admin Dashboard',
             user: req.user,
             message: req.flash('message')[0]
         });
@@ -22,22 +20,24 @@ router.get('/taikhoan',middleware.isAdminAccess,(req,res) =>{
 })
 
 router.get('/list', (req, res) => {
+  console.log(req.user);
  TK_md.loadAll().then(rows => {
   var vm = {
    thuthu:rows,
+   user: req.user,
    error: req.flash('error')
  };
  res.render('QLTK/taikhoan',vm);
 });
 });
-router.get('/editP',(req,res)=>{
-  res.render('QLTK/Edit');
-});
-router.post('/editP',(req,res)=>{
-  TK_md.update(req.body).then(value => {
-    res.redirect('/QLTK/list');
-  });
-});
+// router.get('/editP',(req,res)=>{
+//   res.render('QLTK/Edit');
+// });
+// router.post('/editP',(req,res)=>{
+//   TK_md.update(req.body).then(value => {
+//     res.redirect('/QLTK/list');
+//   });
+// });
 router.post('/list', function(req, res){
   var password = bcrypt.hashSync(req.body.pass, null,null);
   var thuthu={
@@ -65,17 +65,17 @@ router.post('/delete', (req, res) => {
    res.redirect('/QLTK/list');
  });
 });
-router.post('/edit', (req, res) => {
-  TK_md.update(req.body).then(value => {
-    res.redirect('/QLTK/list');
-  });
-});
-router.post('/editTK', (req, res) => {
-  TK_md.getById(req.body.Id)
-  .then(result => {
-    res.send(result)
-  })
-});
+// router.post('/edit', (req, res) => {
+//   TK_md.update(req.body).then(value => {
+//     res.redirect('/QLTK/list');
+//   });
+// });
+// router.post('/editTK', (req, res) => {
+//   TK_md.getById(req.body.Id)
+//   .then(result => {
+//     res.send(result)
+//   })
+// });
 
 
 

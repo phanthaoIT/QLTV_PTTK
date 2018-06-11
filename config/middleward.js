@@ -14,7 +14,7 @@ var middleware = {
     isThuThuAccess: (req,res,next)=>{
         if(req.isAuthenticated()){
             if(req.user.Quyen!=1){
-                return res.render('warning');
+                return res.render('warning',{user: req.user});
             }
         }
         next();
@@ -22,7 +22,7 @@ var middleware = {
     isAdminAccess: (req,res,next)=>{
         if(req.isAuthenticated()){
             if(req.user.Quyen!=2){
-                return res.render('warning');
+                return res.render('warning',{user: req.user});
             }
         }
         next();

@@ -7,6 +7,7 @@ router.get('/list', (req, res) => {
   DG_md.loadAll().then(rows => {
     var vm = {
      docgia:rows,
+      user: req.user,
      error: req.flash('error')
    };
    res.render('DocGia/list',vm);

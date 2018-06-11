@@ -5,6 +5,7 @@ router.get('/list', (req, res) => {
     nxb_md.loadAll().then(rows => {
         var vm = {
          nxb:rows,
+          user: req.user,
         error: req.flash('error')
        };
         res.render('NXB/list', vm);

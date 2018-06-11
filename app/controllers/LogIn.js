@@ -31,7 +31,10 @@ var LogInController = {
                 }
                 else if(user.Quyen==1)
                 {
-                    return res.render('home')
+                     var vm={
+                    user: req.user,
+                    }
+                    return res.render('home',vm)
                 }
             })
 
@@ -42,7 +45,6 @@ var LogInController = {
         req.logout();
         if(!req.session.cookie.expires)
             req.session.destroy();
-      
         res.redirect('/')
     },
 
@@ -53,6 +55,5 @@ var LogInController = {
     }
 
 }
-
 
 module.exports = LogInController;
