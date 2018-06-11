@@ -1,6 +1,26 @@
 var express = require('express');
 var TK_md=require("../models/QLTK");
 var router = express.Router();
+var LoginController = require("../controllers/LogIn");
+var middleware = require("../../config/middleward");
+var bcrypt = require('bcrypt-nodejs');
+router.get('/',middleware.LoggedAdmin, LoginController.formAdminLogin);
+router.post('/', middleware.LoggedAdmin, LoginController.adminLogin);
+
+
+router.get('/taikhoan',middleware.isAdminAccess,(req,res) =>{
+
+  if (req.session.user)
+        res.render('admin', {
+            layout: 'main',
+            title: 'Admin Dashboard',
+            user: req.user,
+            message: req.flash('message')[0]
+        });
+    else
+        res.redirect('/QLTK');
+})
+
 router.get('/list', (req, res) => {
  TK_md.loadAll().then(rows => {
   var vm = {
@@ -19,6 +39,7 @@ router.post('/editP',(req,res)=>{
   });
 });
 router.post('/list', function(req, res){
+  var password = bcrypt.hashSync(req.body.pass, null,null);
   var thuthu={
     'ten':req.body.ten,
     'email':req.body.email,
@@ -26,12 +47,9 @@ router.post('/list', function(req, res){
     'ngaysinh':req.body.ngaysinh,
     'gioitinh':req.body.gioitinh,
     'username':req.body.username,
-    'pass':req.body.pass,
+    'pass':password,
   }
   TK_md.add(thuthu).then(results =>{
-    return TK_md.addacc(thuthu);
-  })
-  .then(value => {
     res.redirect(req.get('referer'));
   }).catch(err => {
    req.flash('error', 'Thao tác không thành công!!!');
@@ -58,5 +76,7 @@ router.post('/editTK', (req, res) => {
     res.send(result)
   })
 });
+
+
 
 module.exports=router;

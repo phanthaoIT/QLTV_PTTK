@@ -57,12 +57,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({secret: '{secret}', name: 'session_id', saveUninitialized: true, resave: true}));
+
+
+require('./config/passport')(passport)
+app.use(session({
+    secret: '{secret}', 
+    name: 'session_id', 
+    saveUninitialized: true,
+     resave: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-require('./routes/index')(app);
+require('./routes/index')(app, passport);
 
 // catch 404 and forward to error handler
 //app.use(function(req, res, next) {
@@ -82,5 +88,5 @@ mysql.connect((err) => {
 	if(err)
 		console.log(err);
 	else
-		console.log('connected');
+		console.log('mysql connected');
 })

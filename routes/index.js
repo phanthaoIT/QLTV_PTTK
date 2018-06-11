@@ -6,22 +6,22 @@ var MuonTraController = require('../app/controllers/MuonTraController')
 var TimKiemController = require('../app/controllers/TimKiemController')
 var QuyDinhController = require('../app/controllers/QuyDinhController')
 var QLTKController = require('../app/controllers/QLTKController')
-module.exports = (app) => {
-	app.get('/', (req, res) => {
-		var vm = {
-			layout: false,
-		};
-		res.render('login',vm)
-	})
-	app.get('/home',(req,res)=>{
-		res.render('home')
-	})
-	app.use('/TheLoai', TheLoaiController);
-	app.use('/NXB', NXBController);
-	app.use('/DocGia', DocGiaController);
-	app.use('/Sach', SachController);
-	app.use('/MuonTra',MuonTraController);
+var AuthorController =  require("../app/controllers/AuthorController")
+var mw = require('../config/middleward')
+var LogoutController = require("../app/controllers/Logout")
+
+
+module.exports = (app,passport) => {
+	app.use('/',TimKiemController);
+	app.use('/QLTK',mw.isAdminAccess,QLTKController);
+	app.use('/home',mw.isLoggedInAdmin,mw.isThuThuAccess, AuthorController);
+	app.use('/TheLoai',mw.isLoggedInAdmin,mw.isThuThuAccess, TheLoaiController);
+	app.use('/NXB',mw.isLoggedInAdmin,mw.isThuThuAccess, NXBController);
+	app.use('/DocGia',mw.isLoggedInAdmin,mw.isThuThuAccess, DocGiaController);
+	app.use('/Sach',mw.isLoggedInAdmin,mw.isThuThuAccess, SachController);
+	app.use('/MuonTra',mw.isLoggedInAdmin,mw.isThuThuAccess,MuonTraController);
 	app.use('/TimKiem',TimKiemController);
-	app.use('/QuyDinh',QuyDinhController);
-	app.use('/QLTK',QLTKController);
-} 
+	app.use('/QuyDinh',mw.isLoggedInAdmin,mw.isThuThuAccess,QuyDinhController);
+	app.use('/logout', LogoutController)
+}
+

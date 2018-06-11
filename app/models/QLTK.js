@@ -17,6 +17,7 @@ exports.add=(thuthu)=>{
 			if(err)
 				reject(err);
 			else
+				db.query(`insert into taikhoan values('${thuthu.username}','${thuthu.pass}','1',`+results.insertId+`)`);
 				resolve(results);
 		});
 	});
@@ -34,7 +35,7 @@ exports.getById = (id) => {
 }
 exports.delete = (id) => {
 	return new Promise((resolve, reject) => {
-		var query = `delete from thuthu where Id = '${id}'`;
+		var query = ` delete from taikhoan where IdThuThu ='${id}';delete from thuthu where Id = '${id}'`;
 		db.query(query, (err, result, fields) => {
 			if (err)
 				reject(err);

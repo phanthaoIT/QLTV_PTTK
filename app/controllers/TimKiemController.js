@@ -2,12 +2,12 @@ var express = require('express');
 var sach_md=require("../models/Sach");
 var theloai_md = require('../models/TheLoai')
 var router = express.Router();
-router.get('/list',(req,res)=>{
+router.get('/',(req,res)=>{
     res.render('TimKiem/list',{
       layout:false
     })
 })
-router.post('/list', (req, res) => {
+router.post('/', (req, res) => {
     let Sach, TheLoai;
     console.log(req.body.search);
     sach_md.search(req.body.search)
