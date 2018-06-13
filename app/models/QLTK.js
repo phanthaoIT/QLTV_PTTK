@@ -55,9 +55,9 @@ exports.update=(thuthu)=>{
 		}); 
 	})
 }
-exports.addacc=(thuthu)=>{
+exports.updateacc=(pass,user)=>{
 	return new Promise((resolve, reject) => {
-		var query = `insert into taikhoan(Username,Pass,Quyen,IdThuThu) values('${thuthu.username}','${thuthu.pass}','1','')`;
+		var query = `update taikhoan set Pass = '${pass}' where Username='${user}'`;
 		db.query(query, (err, results, fields) => {
 			if(err)
 				reject(err);

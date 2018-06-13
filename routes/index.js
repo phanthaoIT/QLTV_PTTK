@@ -12,7 +12,7 @@ var LogoutController = require("../app/controllers/Logout")
 
 module.exports = (app,passport) => {
 	app.use('/',TimKiemController);
-	app.use('/QLTK',mw.isAdminAccess,QLTKController);
+	app.use('/admin',QLTKController);
 	app.use('/TheLoai',mw.isLoggedInAdmin,mw.isThuThuAccess, TheLoaiController);
 	app.use('/NXB',mw.isLoggedInAdmin,mw.isThuThuAccess, NXBController);
 	app.use('/DocGia',mw.isLoggedInAdmin,mw.isThuThuAccess, DocGiaController);
@@ -20,6 +20,6 @@ module.exports = (app,passport) => {
 	app.use('/MuonTra',mw.isLoggedInAdmin,mw.isThuThuAccess,MuonTraController);
 	app.use('/TimKiem',TimKiemController);
 	app.use('/QuyDinh',mw.isLoggedInAdmin,mw.isThuThuAccess,QuyDinhController);
-	app.use('/logout', LogoutController)
+	app.use('/logout', LogoutController);
 }
 

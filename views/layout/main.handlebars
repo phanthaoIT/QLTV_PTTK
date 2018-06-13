@@ -21,9 +21,11 @@
         <ul class="nav pull-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a><p>{{user.Username}}</p>
             <ul class="dropdown-menu">
-              <li><a href="/QLTK/editP"><i class="fa fa-edit"></i>Cập nhật thông tin</a></li>
-              <li class="divider"></li>
-              <li><a href="/logout"><i class=" fa fa-power-off"></i> Logout</a></li>
+               {{#ifCond user.Quyen '==' 1}}
+              <li><a href="/admin/TaiKhoan">Cập nhật thông tin</a></li>
+              {{/ifCond}}
+              <li><a href="/admin/DoiMatKhau"> Đổi mật khẩu</a></li>
+              <li><a href="/logout"></i> Logout</a></li>
             </ul>
           </li>
         </ul>
@@ -40,6 +42,13 @@
     <nav class="c-menu js-menu">
       <ul class="u-list">
        {{#ifCond user.Quyen '==' 1}}
+       <a href="/admin/home">
+          <li class="c-menu__item " data-toggle="tooltip" title="Trang chủ">
+            <div class="c-menu__item__inner"><i class="fa fa-home"></i>
+              <div class="c-menu-item__title"><span>Trang chủ</span></div>
+            </div>
+          </li>
+        </a>
         <a href="/sach/list">
           <li class="c-menu__item " data-toggle="tooltip" title="Quản lý sách">
             <div class="c-menu__item__inner"><i class="fa fa-book"></i>
@@ -72,7 +81,7 @@
         {{/ifCond}}
 
         {{#ifCond user.Quyen '==' 2}}
-        <a href="/QLTK/list">
+        <a href="/admin/list">
           <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Quản lý tài khoản">
             <div class="c-menu__item__inner"><i class="fa fa-asterisk"></i>
               <div class="c-menu-item__title"><span>Quản lý tài khoản</span></div>

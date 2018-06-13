@@ -2,15 +2,14 @@ var middleware = {
     isLoggedInAdmin: (req,res,next) =>{
         if(req.isAuthenticated())
             return next()
-        res.redirect('/QLTK');
+        res.redirect('/admin/home');
     },
 
     LoggedAdmin: (req,res,next) =>{
         if(!req.isAuthenticated())
             return next()
-        return res.redirect('/QLTK/taikhoan');
+        return res.redirect('/admin/dashboard');
     },
-
     isThuThuAccess: (req,res,next)=>{
         if(req.isAuthenticated()){
             if(req.user.Quyen!=1){

@@ -9,22 +9,24 @@
     <script src="/bootstrap/bootstrap.min.js"></script>
     <style type="text/css">
     body {
-        background: -webkit-linear-gradient(90deg, #FF512F 10%, #DD2476 90%);
-        background: -moz-linear-gradient(90deg, #FF512F 10%, #DD2476 90%);
-        background: -ms-linear-gradient(90deg, #FF512F 10%, #DD2476 90%);
-        background: -o-linear-gradient(90deg, #FF512F 10%, #DD2476 90%);
-        background: linear-gradient(90deg, #FF512F 10%, #DD2476 90%);
+        background-image: url("/img/nen3.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        height: 100vh !important;
+        width: 100%;
         font-family: 'Open Sans', sans-serif!important;
     }
     .white{
         color:#000;
         background-color:#fff;
     }
-.container{
-    margin-top: 200px;
+    .container{
+        margin-top: 200px;
 
-}
-</style>
+    }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -35,6 +37,9 @@
                         <h3 class="panel-title">Login</h3>
                     </div>
                     <div class="panel-body">
+                        {{#if message}}
+                        <div class="alert alert-danger">{{message}}</div>
+                        {{/if}}
                         <form accept-charset="UTF-8" role="form" method="post">
                             <fieldset>
                                 <div class="form-group">
@@ -53,3 +58,6 @@
     </div>
 </body>
 </html>
+<script type="text/javascript">
+$('div.alert').delay(3000).slideUp();
+</script>

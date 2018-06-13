@@ -1,10 +1,31 @@
  <link href="/css/style.css" rel="stylesheet">
-<div class="container">
-	<h1> CHÀO MỪNG ĐÊN VỚI HỆ THỐNG QUẢN LÝ THƯ VIỆN</h1>
-	<div class="row">
-		<div class="imgbox"><a href="/DocGia/list"><div id="cat1" class="catimage" ></div></a><h2>QUẢN LÝ ĐỘC GIẢ</h2></div>
-		<div class="imgbox"><a href="/Sach/list"><div id="cat2" class="catimage" ></div></a><h2>QUẢN LÝ SÁCH</h2></div>
-		<div class="imgbox"><a href="/MuonTra/list"><div id="cat3" class="catimage" ></div></a><h2>QUẢN LÝ MƯỢN TRẢ</h2></div>
-		<div class="imgbox"><a href="/QuyDinh/list"><div id="cat4" class="catimage" ></div></a><h2>THAY ĐỔI QUY ĐỊNH</h2></div>
-	</div>
-</div>
+
+ <div class="container">
+ 	<div class="row">
+ 		<div class="imgbox"><a href="/DocGia/list"><div class="catimage" >
+ 			<i class="fa fa-book icon"></i>
+ 			<span>{{sach}}</span>
+ 			<p>QUẢN LÝ SÁCH</p>
+ 		</div></a></div>
+ 		<div class="imgbox"><a href="/sach/list"><div class="catimage" >
+ 			<i class="fa fa-user icon"></i><span>{{docgia}}</span>
+ 			<p>QUẢN LÝ ĐỘC GIẢ</p>
+ 		</div></a></div>
+ 		<div class="imgbox"><a href="/MuonTra/list"><div class="catimage" >
+ 			<i class="fa fa-exchange icon"></i><span>{{muontra}}</span>
+ 			<p>MƯỢN TRẢ SÁCH</p>
+ 		</div></a></div>
+ 		<div class="imgbox"><a href="/QuyDinh/list"><div class="catimage" >
+ 			<i class="fa fa-pencil-square-o icon"></i><span>3</span>
+ 			<p>QUY ĐỊNH </p>
+ 		</div></a></div>
+ 		<div class="imgbox"><a href="/NXB/list"><div class="catimage" >
+ 			<i class="fa fa-barcode icon"></i><span>{{nxb}}</span>
+ 			<p>QUẢN LÝ NXB</p>
+ 		</div></a></div>
+ 		<div class="imgbox"><a href="/TheLoai/list"><div class="catimage" >
+ 			<i class="fa fa-bookmark-o icon"></i><span>{{theloai}}</span>
+ 			<p>QUẢN LÝ THỂ LOẠI</p>
+ 		</div></a></div>
+ 	</div>
+ </div>

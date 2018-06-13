@@ -30,17 +30,13 @@
         <tr>
           <td id="id">{{Id}}</td>
           <td>{{TenThuThu}}</td>
-           <td>{{Email}}</td>
+          <td>{{Email}}</td>
           <td>{{SDT}}</td>
           <td>{{NgaySinh}}</td>
           <td>
             {{#ifCond GioiTinh '==' 0}} Nữ {{else}} Nam {{/ifCond}}
           </td>
           <td class="text-right">
-            <a  data-toggle="modal" href="#edit" class="btn btn-small btn-primary edit" role="button">
-              <i class="fa fa-pencil"></i>
-            </a>
-
             <a data-toggle="modal" href="#delete" class="btn btn-small btn-danger delete" role="button">
               <i class="fa fa-trash"></i>
             </a>
@@ -69,9 +65,9 @@
                 </div>
                 <div class="form-group">
                   <label for="">SDT</label>
-                 <input type="number" class="form-control" id="" name= "sdt" required>
+                  <input type="number" class="form-control" id="" name= "sdt" required>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                   <label for="">Ngày sinh</label>
                   <input type="date" class="form-control" id="" name= "ngaysinh" required>
                 </div>
@@ -82,11 +78,11 @@
                     <option value="0">Nữ</option>
                   </select>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                   <label for="">username</label>
                   <input type="text-right" class="form-control" id="" name= "username" required>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                   <label for="">pass</label>
                   <input type="text" class="form-control" id="" name= "pass" required>
                 </div>
@@ -127,59 +123,16 @@
         </div>
       </div>
     </div>
-    <div class="modal" id="edit">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 class="panel-title">Chỉnh sửa thủ thư</h3>
-            </div>
-            <div class="panel-body">
-             <form action="edit" role="form" method="POST">
-                <div class="form-group">
-                   <label for="">ID</label>
-                  <input type="text" class="form-control" id="kq" name= "Id" value="{{Id}}" readonly><br>
-                  <label for="">Tên Thủ thư</label>
-                  <input type="text" class="form-control" id="kq1" name= "ten" value="{{TenThuThu}}"required>
-                </div>
-                <div class="form-group">
-                  <label for="">Email</label>
-                  <input type="text" class="form-control" id="kq2" name= "email" value="{{Email}}"required>
-                </div>
-                <div class="form-group">
-                  <label for="">SDT</label>
-                  <input type="text" class="form-control" id="kq3" name= "sdt" value="{{SDT}}"required>
-                </div>
-                <div class="form-group">
-                  <label for="">Ngày sinh</label>
-                  <input type="date" class="form-control" id="kq4" name= "ngaysinh" value="{{NgaySinh}}"required>
-                </div>
-                <div class="form-group">
-                  <label for="">Giới tính</label>
-                  <select class="form-control" name="gioitinh" id="kq5">
-                    <option value="1">Nam</option>
-                    <option value="0">Nữ</option>
-                  </select>
-                </div>
-                <div class="modal-footer">
-                  <button data-dismiss="modal" class="btn btn-danger">Hủy</button>
-                  <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
+</div>
+</div>
 </div>
 {{#section 'scripts'}}
 <script src="/TK.js"></script>
 <script> $(document).ready(function () {
         //bootstrap WYSIHTML5 - text editor
         $('#table').DataTable();
-    });
+      });
 </script>
 <script src ="/css/jquery.dataTables.min.js"></script>
 {{/section}}

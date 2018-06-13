@@ -13,28 +13,21 @@ var LogInController = {
     adminLogin: (req,res)=>{
         passport.authenticate('local-login', (err,user,info)=>{
             if(err){
-                return res.redirect('/QLTK')
+                return res.redirect('/admin')
             }
             if(!user){
-                return res.redirect('/QLTK')
+                return res.redirect('/admin')
             }
             req.logIn(user, err=>{
                 if(err) return console.log(err)
                     req.session.user = user;
-                if (req.body.remember) {
-                    req.session.cookie.originalMaxAge = 1000 * 60 * 3;
-                }
-                else
-                    req.session.cookie.originalMaxAge = false;
+                req.session.cookie.originalMaxAge = 1000 * 60 * 10;
                 if(user.Quyen == 2){
-                    return res.redirect('QLTK/taikhoan')
+                    return res.redirect('admin/dashboard')
                 }
                 else if(user.Quyen==1)
                 {
-                     var vm={
-                    user: req.user,
-                    }
-                    return res.render('home',vm)
+                    return res.redirect('admin/home')
                 }
             })
 
@@ -43,15 +36,14 @@ var LogInController = {
 
     adminLogout: (req,res)=>{
         req.logout();
-        if(!req.session.cookie.expires)
-            req.session.destroy();
-        res.redirect('/')
+        req.session.destroy();
+        res.redirect('/');
     },
 
     logout: (req,res,next) =>{
         req.logout();
-        req.session= {}
-        res.render('/');
+        req.session.destroy();
+        res.redirect('/');
     }
 
 }

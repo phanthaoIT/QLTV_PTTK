@@ -1,0 +1,26 @@
+<div class="col-sm-6 col-sm-offset-3">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Thay đổi mật khẩu</h3>
+		</div>
+		<div class="panel-body">
+			{{#if message}}
+			<div class="alert alert-danger">{{message}}</div>
+			{{/if}}
+			<form action="" method="POST" role="form">
+				<div class="form-group">
+					<label for="">Mật khẩu cũ</label>
+					<input type="password" class="form-control" name="cu" required>
+					<label for="">Mật khẩu mới</label>
+					<input type="password" class="form-control" name="moi" required>
+					<label for="">Xác nhận mật khẩu mới:</label>
+					<input type="password" class="form-control" name="remoi" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$('div.alert').delay(3000).slideUp();
+</script>
