@@ -86,7 +86,6 @@ router.post('/list', function(req, res){
  });
 });
 router.post('/delete', (req, res) => {
-  var now = moment().format('DD/MM/YYYY');
   var trasach={
     'id':req.body.Id,
     'sach':req.body.ten,
@@ -94,8 +93,14 @@ router.post('/delete', (req, res) => {
     'hantra': req.body.han
   }
   MuonTra_md.delete(trasach).then(results => {
-    if (now > trasach.hantra)
-      req.flash('error', 'Độc giả trả sách quá hạn!!');
+     var day = new Date(moment(trasach.hantra,'DD/MM/YYYY')).getTime();
+     console.log(day);
+    var now = new Date(moment()).getTime();
+    console.log(now);
+    let d = Math.round((now - day)/(1000*60*60*24));
+    if (d >0){
+      req.flash('error', 'Độc giả trả sách quá hạn '+ d +' ngày!');
+    }
     return sach_md.updateSL(trasach);
   })
   .then(value => {
