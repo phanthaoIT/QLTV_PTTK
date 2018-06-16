@@ -63,4 +63,13 @@ router.post('/editDG', (req, res) => {
     res.send(result)
   })
 });
+router.post('/XoaTheHetHan', (req, res) => {
+  DG_md.del().then(results => {
+    req.flash('error', 'Xóa thành công!!!');
+    res.redirect('/DocGia/list');
+  }).catch(err => {
+    req.flash('error', 'Độc giả chưa trả sách!!!');
+    res.redirect('/DocGia/list');
+  });
+});
 module.exports=router;

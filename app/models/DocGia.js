@@ -54,5 +54,15 @@ exports.update=(docgia)=>{
 		}); 
 	})
 }
-
+exports.del= () => {
+	return new Promise((resolve, reject) => {
+		var query = `DELETE FROM docgia WHERE docgia.HanThe < now()`;
+		db.query(query, (err, result, fields) => {
+			if (err)
+				reject(err);
+			else
+				resolve(result);
+		}); 
+	})
+}
 
