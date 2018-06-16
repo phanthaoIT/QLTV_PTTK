@@ -71,7 +71,7 @@ router.post('/list', function(req, res){
 });
 router.post('/delete', (req, res) => {
   TK_md.delete(req.body.Id).then(value => {
-    res.redirect('/QLTK/list');
+    res.redirect('/admin/list');
   }).catch(err => {
    req.flash('error', 'Thao tác không thành công!!!');
    res.redirect('/admin/list');

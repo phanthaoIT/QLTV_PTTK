@@ -36,6 +36,7 @@ router.post('/list', function(req, res){
   var now = moment().format('YYYY/MM/DD');
   QuyDinh_md.getById(4).then(value=>{
     QD = value[0].GiaTri2;
+    QD1 = value[0].GiaTri1;
     muontra={
       'docgia':req.body.madocgia,
       'sach':req.body.masach,
@@ -58,7 +59,7 @@ router.post('/list', function(req, res){
         }
         else{
           MuonTra_md.count(muontra.docgia).then(value=>{
-            if(value.SL <5){
+            if(value.SL <QD1){
               MuonTra_md.add(muontra).then(results => {
                 return sach_md.updateSL(muontra);
               })
