@@ -21,7 +21,7 @@ var LogInController = {
             req.logIn(user, err=>{
                 if(err) return console.log(err)
                     req.session.user = user;
-                req.session.cookie.originalMaxAge = 1000 * 60 * 10;
+                req.session.cookie.originalMaxAge = 1000 * 60 * 60;
                 if(user.Quyen == 2){
                     return res.redirect('admin/dashboard')
                 }
